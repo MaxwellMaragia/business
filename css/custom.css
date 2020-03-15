@@ -1,0 +1,18 @@
+header a.logo img{
+    max-height:65px;
+    margin-bottom:-20px;
+}
+.industries{
+  /* background-color: #F7F7F7; */
+  background-color: #23225e;
+  color:white;
+/* border: 1px solid rgba(0, 0, 0, 0.2); */
+/* margin-bottom: 15px; */
+padding: 10px 0;
+text-align: center;
+}
+
+
+.feature-box-13 :hover{
+  color:red;
+}
