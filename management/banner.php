@@ -25,6 +25,13 @@ else{
         $banner_heading = $get_data['value'];
     }
 
+    $sql = "SELECT value FROM home WHERE name='home_top_banner'";
+    $exe = mysqli_query($obj->con,$sql);
+    while($get_data = mysqli_fetch_assoc($exe))
+    {
+        $banner_type = $get_data['value'];
+    }
+
     $sql = "SELECT value FROM home WHERE name='banner_text'";
     $exe = mysqli_query($obj->con,$sql);
     while($get_data = mysqli_fetch_assoc($exe))
@@ -58,7 +65,7 @@ else{
         $b_text = $obj->con->real_escape_string(htmlspecialchars($_POST['banner_text']));
         $bu_text = $obj->con->real_escape_string(htmlspecialchars($_POST['button_text']));
         $b_url = $obj->con->real_escape_string(htmlspecialchars($_POST['button_url']));
-
+        $banner_type = $obj->con->real_escape_string(htmlspecialchars($_POST['banner_type']));
 
 
         //saving data one by one
@@ -77,6 +84,10 @@ else{
         $data4 = array('value'=>$b_url);
         $where4 = array('name'=>'banner_button_link');
         $obj->update_record('home',$where4,$data4);
+
+        $data5 = array('value'=>$banner_type);
+        $where5 = array('name'=>'home_top_banner');
+        $obj->update_record('home',$where5,$data5);
 
         $success = "Data changed successfully";
 
@@ -181,6 +192,17 @@ else{
                             <!-- form start -->
                             <form role="form" method="post" action="" enctype="multipart/form-data">
                                 <div class="card-body">
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Banner type</label>
+                                      <select class="form-control" name="banner_type">
+                                        <option><?php if($banner_type==1){echo 'banner with blue container(current)';}else{echo 'banner full screen(current)';} ?></option>
+                                        <option value="1">banner with blue container</option>
+                                        <option value="2">banner full screen</option>
+
+                                      </select>
+                                      <small id="wordAlert" class="float-right"></small>
+
+                                  </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Banner heading</label>
                                         <input id="5-24" type="text" class="form-control co_form_dei" id="exampleInputEmail1" placeholder="eg Tagline" value="<?=$banner_heading?>" name="banner_heading">

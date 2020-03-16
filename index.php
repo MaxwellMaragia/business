@@ -1,5 +1,11 @@
 <?php
 include_once 'functions/functions.php';
+
+$sql = "SELECT value FROM home WHERE name='home_top_banner'";
+$exe = mysqli_query($obj->con,$sql);
+$get_banner = mysqli_fetch_assoc($exe);
+$banner = $get_banner['value'];
+
 $sql = "SELECT value FROM home WHERE name='youtube_video_url'";
 $exe = mysqli_query($obj->con,$sql);
 $get_data = mysqli_fetch_assoc($exe);
@@ -94,6 +100,8 @@ if(isset($_POST['service'])){
             <!-- end navigation -->
         </header>
         <!-- end header -->
+
+        <?php if($banner==1){?>
         <!-- start parallax hero section -->
         <section class="wow fadeIn no-padding parallax " data-stellar-background-ratio="0.5" >
             <div class="opacity-extra-medium bg-black">
@@ -117,7 +125,38 @@ if(isset($_POST['service'])){
             </div>
         </section>
         <!-- end parallax hero section -->
+        <?php }else{ ?>
 
+<<<<<<< HEAD
+        <section class="wow fadeIn no-padding parallax xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image: url(&quot;http://placehold.it/1920x1200&quot;); background-position: 0px 0px; visibility: visible; animation-name: fadeIn;">
+            <div class="opacity-extra-medium bg-black">
+              <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
+                <source src="management/<?=$banner_video?>" type="video/mp4">
+              </video>
+            </div>
+            <div class="container-fluid padding-thirteen-lr one-fourth-screen xs-padding-15px-lr">
+                <div class="row height-100">
+                    <div class="position-relative height-100">
+                        <div class="slider-typography">
+                            <div class="slider-text-middle-main">
+                                <div class="slider-text-bottom">
+                                    <div class="col-lg-12 text-center">
+                                      <h1 class="text-white font-weight-600 alt-font width-95 sm-width-100 margin-60px-top">We are a fully fledged<span class="font-weight-300"> consulting firm.</span></h1>
+                                      <p class="text-large text-center font-weight-300 width-95 text-white  md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <?php } ?>
+
+=======
+>>>>>>> 3bc992c992b43de54866bb82992d38340cc883a8
         <section class="wow fadeIn bg-white" style="visibility: visible; animation-name: fadeIn;" id="services">
             <div class="container">
                 <div class="row">
