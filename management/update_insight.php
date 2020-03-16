@@ -228,17 +228,18 @@ if($_SESSION['admin'])
                     'media'=>"$link"
                 );
             }
-            else{
-                $data = array(
-                    'category'=>$category,
-                    'heading'=>$heading,
-                    'body'=>$body,
-                    'keywords'=>$keywords,
-                    'file'=>$c_document,
-                    'state'=>$state
-    
-                );
-            }
+            
+        }
+        else{
+            $data = array(
+                'category'=>$category,
+                'heading'=>$heading,
+                'body'=>$body,
+                'keywords'=>$keywords,
+                'file'=>$c_document,
+                'state'=>$state
+
+            );
         }
    
 
