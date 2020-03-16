@@ -23,34 +23,8 @@ include "functions/functions.php";
         </header>
         <!-- end header -->
 
-        <!-- start page title section -->
-        <section class="wow fadeIn bg-light-gray padding-35px-tb page-title-small top-space" style="margin-top: 107px; visibility: visible; animation-name: fadeIn;">
-            <div class="container">
-                <div class="row equalize">
-                    <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table" style="height: 26px;">
-                        <div class="display-table-cell vertical-align-middle text-left xs-text-center">
-                            <!-- start page title -->
-                            <h1 class="alt-font text-dark-gray font-weight-600 no-margin-bottom ">Careers</h1>
-                            <!-- end page title -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right xs-text-left xs-margin-10px-top" style="height: 26px;">
-                        <div class="display-table-cell vertical-align-middle breadcrumb text-small alt-font">
-                            <!-- breadcrumb -->
-                            <ul class="xs-text-center">
-                                <li><a href="index" class="text-dark-gray">Home</a></li>
-                                <li><a href="careers" class="text-dark-gray">Careers</a></li>
-                            </ul>
-                            <!-- end breadcrumb -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end page title section -->
 
-
-        <section class="wow fadeIn bg-white" style="visibility: visible; animation-name: fadeIn;">
+        <section class="wow fadeIn bg-white margin-50px-top" style="visibility: visible; animation-name: fadeIn;">
                     <div class="container">
                       <div class="row text-center margin-40px-bottom">
                           <div class="col-md-12">
@@ -70,10 +44,10 @@ include "functions/functions.php";
                                 <a href="career_details?id=<?= $row['id'] ?>" style="cursor:pointer;">
                                     <div class="col-md-4 col-sm-6 col-xs-12 margin-30px-bottom xs-margin-15px-bottom wow fadeIn" style="visibility: visible; animation-name: fadeIn; height: 289px;">
                                         <!-- fresh news item -->
-                                        <div class="blog-post blog-post-style7 border-all border-color-light-gray padding-fourteen-all md-padding-ten-all xs-padding-30px-all bg-white inner-match-height">
+                                        <div class="blog-post blog-post-style7 border-all border-color-light-gray padding-fourteen-all md-padding-ten-all xs-padding-30px-all bg-custom-blue inner-match-height">
                                             <div class="post-details margin-50px-top">
                                                 <!-- <span class="text-extra-small text-uppercase display-block margin-four-bottom sm-margin-two-bottom">17 july 2017</span> -->
-                                                <span class="text-large  alt-font margin-10px-bottom sm-margin-30px-bottom display-block"><a class="text-custom-blue" href="career_details?id=<?=$row['id']?>"><?=$row['title']?></a></span>
+                                                <span class="text-large  alt-font margin-10px-bottom sm-margin-30px-bottom display-block"><a class="text-white" href="career_details?id=<?=$row['id']?>"><?=$row['title']?></a></span>
 
                                                 <div class="author padding-10px-top position-relative">
                                                     <span class=" ">Application deadline : <?=$row['deadline']?></span>
