@@ -115,8 +115,8 @@ if(isset($_POST['service'])){
                         <div class="slider-text-bottom ">
                             <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pull-right bg-custom-blue-opacity padding-six-lr md-padding-seven-lr padding-five-tb xs-padding-30px-all last-paragraph-no-margin">
                                 <!-- <div class="box-separator-line width-180px bg-white md-width-120px sm-width-90px sm-display-none"></div> -->
-                                <h1 class="text-white  font-weight-600 alt-font width-95 sm-width-100 margin-60px-top">We are a fully fledged<span class="font-weight-300"> consulting firm.</span></h1>
-                                <p class="text-large font-weight-300 text-white width-75 md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p>
+                                <h1 class="text-white  font-weight-600 alt-font width-95 sm-width-100 margin-60px-top"><?=$banner_heading?></h1>
+                                <p class="text-large font-weight-300 text-white width-75 md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p><br>
                                 <!-- <a href="about" class=" text-center btn btn-medium btn-white margin-20px-top text-link-deep-pink xs-margin-10px-top">Read more</a> -->
                             </div>
                         </div>
@@ -140,9 +140,9 @@ if(isset($_POST['service'])){
                         <div class="slider-typography">
                             <div class="slider-text-middle-main">
                                 <div class="slider-text-bottom">
-                                    <div class="col-lg-12 text-center">
-                                      <h1 class="text-white font-weight-600 alt-font width-95 sm-width-100 margin-60px-top">We are a fully fledged<span class="font-weight-300"> consulting firm.</span></h1>
-                                      <p class="text-large text-center font-weight-300 width-95 text-white  md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p>
+                                    <div class="col-lg-12 text-center margin-100px-bottom">
+                                      <h1 class="text-white font-weight-600 alt-font width-95 sm-width-100 "><?=$banner_heading?><span class="font-weight-300"> </span></h1>
+                                      <p class="text-large text-center font-weight-400 width-95 text-white  md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p>
                                     </div>
                                 </div>
 
