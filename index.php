@@ -41,7 +41,19 @@ $exe = mysqli_query($obj->con,$sql);
 $get_data = mysqli_fetch_assoc($exe);
 $banner_button_link = $get_data['value'];
 
+
+session_start();
+if(isset($_POST['service'])){
+    $_SESSION['service']=$obj->con->real_escape_string(htmlspecialchars($_POST['service']));
+  if ($_SESSION['service']) {
+    header('location:service');
+  }
+
+}
 ?>
+
+
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -106,7 +118,7 @@ $banner_button_link = $get_data['value'];
         </section>
         <!-- end parallax hero section -->
 
-        <section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;" id="services">
+        <section class="wow fadeIn bg-white" style="visibility: visible; animation-name: fadeIn;" id="services">
             <div class="container">
                 <div class="row">
                   <div class="col-md-12">
@@ -127,25 +139,16 @@ $banner_button_link = $get_data['value'];
                                 while($get_service = mysqli_fetch_assoc($exe))
                                 {
                                     ?>
-                                <div class="swiper-slide grid-item swiper-slide-active bg-light-gray" style="width: 273.75px; margin-right: 15px; height:200px">
+                                <div class="swiper-slide grid-item swiper-slide-active bg-custom-blue" style="width: 273.75px; margin-right: 15px; height:200px">
                                     <div class="text-center padding-eighteen-all feature-box-13 position-relative xs-margin-20px-top
                                     sm-margin-40px-top md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                                      <i class="<?=$get_service['icon']?> ico text-custom-blue icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
-                                      <a class="modal-popup wow fadeInUp" data-wow-delay="0.6s" href="#<?=$get_service['id']?>" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                                      <i class="<?=$get_service['icon']?> ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                                      <form method="post"><button name="service" value="<?=$get_service['id']?>" type="submit" class=" wow fadeInUp" data-wow-delay="0.6s" href="#<?=$get_service['id']?>" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;background: none; border: none;">
                                       <p class="text-medium text-extra-light-gray alt-font"><?=$get_service['heading']?></p>
-                                      </a>
+                                    </button></form>
                                       <div class="feature-box-overlay bg-deep-pink"></div>
                                    </div>
                                 </div>
-
-
-                        <!-- start modal pop-up -->
-                        <div id="<?=$get_service['id']?>" class="white-popup-block col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main padding-50px-all mfp-hide">
-                            <span class="text-custom-blue  alt-font text-extra-large font-weight-600 margin-15px-bottom display-block"><?=$get_service['heading']?></span>
-                            <p class="margin-four"><?=$get_service['body']?></p>
-                            <a class="btn btn-medium btn-rounded btn-dark-gray popup-modal-dismiss" href="#">Dismiss</a>
-                        </div>
-                        <!-- end modal pop-up -->
 
                                 <?php } ?>
                                 <!-- end slide item -->
@@ -354,27 +357,27 @@ $banner_button_link = $get_data['value'];
                     <div class="row show-grid xs-padding-right xs-padding-left">
                       <div class="industrie col-md-1"></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-thumb-up ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-thumb-up ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Insurance</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-bag ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-bag ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Retail</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-heart ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-heart ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Healthcare</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-pie-chart ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-pie-chart ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Private equity</p>
-                            <div class="feature-box-overlay bg-deep-pink"></div>
+                            <!-- <div class="feature-box-overlay bg-deep-pink"></div> -->
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-music ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-music ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Entertainment</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>

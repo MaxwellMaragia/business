@@ -36,10 +36,10 @@ include_once 'functions/functions.php';
             <!-- end navigation -->
         </header>
         <!-- end header -->
-   
-        
+
+
         <!-- start contact section -->
-        <section class="no-padding bg-extra-dark-gray margin-80px-bottom">
+        <section class="no-padding bg-extra-dark-gray margin-100px-top">
             <div class="container-fluid">
                 <div class="row equalize sm-equalize-auto">
                     <div class="col-md-6 col-sm-12 no-padding cover-background sm-height-450px xs-height-350px wow fadeInLeft" style="background: url(management/images/nairobi-kenya-wallpaper.jpg)"></div>
