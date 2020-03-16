@@ -100,7 +100,7 @@ else{
                             <img src="management/<?=$file?>" alt="" class="width-100 margin-50px-bottom sm-margin-30px-bottom">
                         <?php
                         }
-                        else{
+                        else if($media == 'video'){
                             ?>
                             <video controls>
                                 <source src="management/<?=$file?>" type="video/mp4">
@@ -108,6 +108,11 @@ else{
                                 Your browser does not support the video tag.
                             </video>
                         <?php
+                        }
+                        else if($media == 'link'){
+                            ?>
+                            <iframe width="100%" height="450" src="<?=$file?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                            <?php
                         }
                         ?>
                         <div>
@@ -119,7 +124,7 @@ else{
                                     <?php
                                 }
                                 ?>
-                            <?=$body?>
+                            <?=$body?><br>
                             <script>document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='470'></div>");</script>
                         </div>
 

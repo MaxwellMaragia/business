@@ -243,6 +243,7 @@ if(isset($_POST['service'])){
                           {
                               $cid = $get_insight['category'];
                               $author_id = $get_insight['author'];
+                              $media_file = $get_insight['media_type'];
 
                               $where = array('id'=>$cid);
                               $get_cat = $obj->fetch_records('categories',$where);
@@ -265,7 +266,7 @@ if(isset($_POST['service'])){
                                       <div class="blog-post-images overflow-hidden">
                                           <a href="insight?id=<?=$get_insight['id']?>">
                                               <?php
-                                              if($get_insight['media_type']=='video')
+                                              if($media_file=='video')
                                               {
                                                   ?>
                                                   <video  controls height="243px" style="margin-top:-19px">
@@ -275,11 +276,17 @@ if(isset($_POST['service'])){
                                                   </video>
                                                   <?php
                                               }
-                                              else{
+                                              else if($media_file=='image'){
                                                   ?>
                                                   <img src="management/<?=$get_insight['media']?>" alt="<?=$get_insight['heading']?>" style="height: 225px;">
                                               <?php
                                               }
+                                              else if($media_file=='link'){
+                                                ?>
+                                                <iframe height="218" width="100%" src="<?=$get_insight['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                            <?php
+                                            }
+                                              
                                               ?>
 
                                           </a>

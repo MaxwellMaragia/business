@@ -150,6 +150,23 @@ if($_SESSION['admin'])
             }
         }
 
+        if($media_type == 'link')
+        {
+            $link = $obj->con->real_escape_string(htmlentities($_POST['link']));
+            $data = array(
+                'category'=>$category,
+                'heading'=>$heading,
+                'body'=>"$body",
+                'keywords'=>$keywords,
+                'media_type'=>$media_type,
+                'file'=>$document,
+                'author'=>$aid,
+                'date'=>$date,
+                'state'=>$state,
+                'media'=>$link
+            );
+        }
+
        
         if($obj->insert_record('news',$data))
         {
@@ -288,6 +305,10 @@ else
                                             <input class="custom-control-input" type="radio" id="customRadio2" name="media" value="video">
                                             <label for="customRadio2" class="custom-control-label">Video</label>
                                         </div>
+                                        <div class="custom-control custom-radio" style="margin-left:13px;">
+                                            <input class="custom-control-input" type="radio" id="customRadio3" name="media" value="link">
+                                            <label for="customRadio3" class="custom-control-label">Video link</label>
+                                        </div>
                                     </div>
 
                                     <div class="step">
@@ -311,6 +332,18 @@ else
                                                         <input type="file" class="custom-file-input" id="customFile2" name="video_file">
                                                         <label class="custom-file-label" for="customFile2">Choose video</label>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="step">
+                                        <div class="link box">
+                                            <div class="form-group col-md-6">
+                                                <div class="input-group">
+    
+                                                 <input type="url" class="form-control" id="customFile3" placeholder="format https://www.youtube.com/embed/XXbExVwuLAs" name="link">          
                                                 </div>
                                             </div>
                                         </div>

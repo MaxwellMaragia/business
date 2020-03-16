@@ -151,27 +151,33 @@ else{
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-12 col-lg-5 blog-image md-margin-30px-bottom sm-margin-20px-bottom margin-45px-right md-no-margin-right">
 
-                                        <a href="insight?id=<?=$row['id']?>">
-                                            <?php
-                                            if($row['media_type']=='image')
-                                            {
-                                                ?>
-                                                <img src="management/<?=$row['media']?>" alt="by <?=$author?>">
-                                            <?php
-                                            }
-                                            else if($row['media_type']=='video'){
-                                                ?>
-                                                <video  controls >
-                                                    <source src="management/<?=$row['media']?>" type="video/mp4">
-                                                    <source src="movie.ogg" type="video/ogg">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                            <?php
-                                            }
+                                    <a href="insight?id=<?=$row['id']?>">
+                                        <?php
+                                        if($row['media_type']=='image')
+                                        {
                                             ?>
+                                            <img src="management/<?=$row['media']?>" alt="by <?=$author?>" style="height:200px;">
+                                        <?php
+                                        }
+                                        else if($row['media_type']=='video'){
+                                            ?>
+                                            <video  controls height="200" width="90%">
+                                                <source src="management/<?=$row['media']?>" type="video/mp4">
+                                                <source src="movie.ogg" type="video/ogg">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        <?php
+                                        }
+                                        else if($row['media_type']=='link')
+                                        {
+                                            ?>
+                                            <iframe height="200" width="90%" src="<?=$row['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                            <?php
+                                        }
+                                        ?>
 
-                                        </a>
-                                        </a>
+                                    </a>
+                                        
                                     </div>
                                     <div class="col-12 col-lg-6 blog-text">
                                         <div class="content margin-20px-bottom md-no-padding-left ">

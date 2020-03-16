@@ -145,7 +145,9 @@ if($_SESSION['admin'])
 
                         //save image to folder and database
                        
-                        unlink($file);
+                        if($media!='link'){
+                            unlink($file);
+                        }
                         $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
                         $extension  = pathinfo( $_FILES["image_file"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
                         $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
@@ -169,7 +171,7 @@ if($_SESSION['admin'])
 
                 }
             }
-            if($media_type == 'video')
+            else if($media_type == 'video')
             {
                 if($_FILES['video_file']['tmp_name'])
                 {
@@ -182,7 +184,9 @@ if($_SESSION['admin'])
 
                         //save image to folder and database
                         
-                        unlink($file);
+                        if($media!='link'){
+                            unlink($file);
+                        }
                         $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
                         $extension  = pathinfo( $_FILES["video_file"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
                         $basename   = $filename . '.' . $extension; // 5dab1961e93a7_1571494241.jpg
@@ -205,18 +209,38 @@ if($_SESSION['admin'])
 
                 }
             }
+            else if($media_type == 'link')
+            {
+                if($file == 'image' || $file == 'video')
+                {
+                    unlink($file);
+                }
+                
+                $link = $obj->con->real_escape_string(htmlentities($_POST['link']));
+                $data = array(
+                    'category'=>$category,
+                    'heading'=>$heading,
+                    'body'=>"$body",
+                    'keywords'=>$keywords,
+                    'media_type'=>$media_type,
+                    'file'=>$document,
+                    'state'=>$state,
+                    'media'=>"$link"
+                );
+            }
+            else{
+                $data = array(
+                    'category'=>$category,
+                    'heading'=>$heading,
+                    'body'=>$body,
+                    'keywords'=>$keywords,
+                    'file'=>$c_document,
+                    'state'=>$state
+    
+                );
+            }
         }
-        else{
-            $data = array(
-                'category'=>$category,
-                'heading'=>$heading,
-                'body'=>$body,
-                'keywords'=>$keywords,
-                'file'=>$c_document,
-                'state'=>$state
-
-            );
-        }
+   
 
         $where = array('id'=>$id);
 
@@ -376,12 +400,19 @@ else
                                                         </video>
                                             <?php
                                         }
+                                        else if($media == 'link')
+                                        {
+                                            ?>
+                                            
+                                            <iframe height="160" width="200" src="<?=$file?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                            <?php
+                                        }
                                         ?>
                                     </div>
 
 
                                     <label for="exampleInputEmail1" style="margin-left:7px;">Select new</label><br>
-                                    <div class="form-group row">
+                                    <div class="form-group row col-md-6">
 
                                         <div class="custom-control custom-radio" style="margin-left:13px;">
                                             <input class="custom-control-input" type="radio" id="customRadio1" name="media" value="image">
@@ -390,6 +421,10 @@ else
                                         <div class="custom-control custom-radio" style="margin-left:13px;">
                                             <input class="custom-control-input" type="radio" id="customRadio2" name="media" value="video">
                                             <label for="customRadio2" class="custom-control-label">Video</label>
+                                        </div>
+                                        <div class="custom-control custom-radio" style="margin-left:13px;">
+                                            <input class="custom-control-input" type="radio" id="customRadio3" name="media" value="link">
+                                            <label for="customRadio3" class="custom-control-label">Youtube</label>
                                         </div>
                                     </div>
 
@@ -414,6 +449,17 @@ else
                                                         <input type="file" class="custom-file-input" id="customFile2" name="video_file">
                                                         <label class="custom-file-label" for="customFile2">Choose video</label>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="link box">
+                                            <div class="form-group col-md-6">
+                                                <div class="input-group">
+    
+                                                 <input type="url" class="form-control" id="customFile3" placeholder="format https://www.youtube.com/embed/XXbExVwuLAs" name="link">          
                                                 </div>
                                             </div>
                                         </div>

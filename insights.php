@@ -194,17 +194,23 @@ if(mysqli_num_rows($exe)>0)
                                         if($row['media_type']=='image')
                                         {
                                             ?>
-                                            <img src="management/<?=$row['media']?>" alt="by <?=$author?>">
+                                            <img src="management/<?=$row['media']?>" alt="by <?=$author?>" style="height:250px;">
                                         <?php
                                         }
                                         else if($row['media_type']=='video'){
                                             ?>
-                                            <video  controls >
+                                            <video  controls height="250" width="100%">
                                                 <source src="management/<?=$row['media']?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
                                         <?php
+                                        }
+                                        else if($row['media_type']=='link')
+                                        {
+                                            ?>
+                                            <iframe height="250" width="100%" src="<?=$row['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                            <?php
                                         }
                                         ?>
 
