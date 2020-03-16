@@ -14,8 +14,16 @@ else{
     {
         $id=$obj->con->real_escape_string(htmlentities($_POST['delete']));
         $image = $_POST['image'];
+        $pdf = $_POST['pdf'];
         $where=array("id"=>$id);
         unlink($image);
+
+        //delete file
+        if($pdf)
+        {
+            unlink($pdf);
+        }
+        
         if($obj->delete_record("news",$where))
         {
             $success="Insight has been removed";
@@ -88,6 +96,7 @@ else{
                                             <th>Media</th>
                                             <th>Category</th>
                                             <th>Title</th>
+                                            <th>Document</th>
                                             <th>state</th>
                                             <th>Actions</th>
                                         </tr>
@@ -145,6 +154,18 @@ else{
                                                     ?>
                                                 </td>
                                                 <td><?=$row['heading']?></td>
+                                                <td>
+                                                    <?php
+                                                    
+                                                    if($row['file'])
+                                                    {
+                                                        ?>
+                                                        <a href="<?=$row['file']?>" target="_blank"><?=$row['file']?></a>
+                                                        <?php
+                                                    }
+                                                    
+                                                    ?>
+                                                </td>
                                                 <td><?=$job?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete<?=$row['id']?>"><span class="fa fa-trash"></span></button>
@@ -170,6 +191,7 @@ else{
                                                         <div class="modal-footer">
                                                             <form action="" METHOD="POST">
                                                                 <input type="hidden" name="image" value="<?=$row['media']?>">
+                                                                <input type="hidden" name="pdf" value="<?=$row['file']?>">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                                                 <button  class="btn btn-primary" type="submit" name="delete" value="<?=$row['id']?>">Delete</button>
                                                             </form>

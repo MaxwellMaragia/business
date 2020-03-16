@@ -340,7 +340,7 @@ else{
                                                 if($favicon_url)
                                                 {
                                                     ?>
-                                                    <img src="<?= $favicon_url ?>" alt="logo" >
+                                                    <img src="<?= $favicon_url ?>" alt="logo" style="height:50px;width:50px;">
                                                     <?php
                                                 }
                                                 else{

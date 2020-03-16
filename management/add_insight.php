@@ -4,6 +4,7 @@ if($_SESSION['admin'])
 {
     include 'functions/actions.php';
     $obj=new DataOperations();
+    
 
     //get author
 
@@ -25,7 +26,7 @@ if($_SESSION['admin'])
 
 
 
-    $error=$success=$category=$heading=$body='';
+    $error=$success=$category=$heading=$body=$document='';
     $date = date("d-M-Y");
 
 
@@ -57,6 +58,19 @@ if($_SESSION['admin'])
 
         $media_type = $_POST['media'];
 
+        //check if pdf uploaded
+        if(is_uploaded_file($_FILES['pdf']['tmp_name']))
+        {
+            //save image to folder and database
+            $pdfname    = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+            $extension  = pathinfo( $_FILES["pdf"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+            $basename   = $pdfname . '.' . $extension; // 5dab1961e93a7_1571494241.pdf
+            $source     = $_FILES["pdf"]["tmp_name"];
+            $document   = "documents/blog/" . $basename;
+            move_uploaded_file( $source, $document );
+        }
+
+
 
         if($media_type == 'image')
         {
@@ -87,6 +101,7 @@ if($_SESSION['admin'])
                         'media_type'=>$media_type,
                         'author'=>$aid,
                         'date'=>$date,
+                        'file'=>$document,
                         'state'=>$state,
                         'media'=>$image
                     );
@@ -123,6 +138,7 @@ if($_SESSION['admin'])
                         'body'=>"$body",
                         'keywords'=>$keywords,
                         'media_type'=>$media_type,
+                        'file'=>$document,
                         'author'=>$aid,
                         'date'=>$date,
                         'state'=>$state,
@@ -134,9 +150,13 @@ if($_SESSION['admin'])
             }
         }
 
+       
         if($obj->insert_record('news',$data))
         {
+
+
             $success = "Insight added";
+
             $heading=$body='';
         }
         else{
@@ -236,7 +256,7 @@ else
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="News title" name="title" required value="<?=$heading?>">
                                     </div>
 
-                                    <div class="form-group" style="margin-left:8px;">
+                                    <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">Description<span class="text-danger">*</span></label>
                                         <textarea class="textarea" placeholder="Place some text here"
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="body" required="required">
@@ -245,8 +265,20 @@ else
                                     <a href="../web-builder/buttons" target="_blank">Design templates you can use</a>
                                     </div>
 
-                                    <label for="exampleInputEmail1" style="margin-left:7px;">Media type<span class="text-danger">*</span></label><br>
-                                    <div class="form-group row">
+                                    <div class="form-group col-md-6">
+                                        <label for="exampleInputFile">Upload pdf document</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="pdf" accept="application/pdf">
+                                                <label class="custom-file-label" for="exampleInputFile">Select document</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <label for="exampleInputEmail1" style="margin-left:7px;">Media type<span class="text-danger">*</span></label><br>
+                                    </div>
+                                    <div class="form-group row col-md-6">
 
                                         <div class="custom-control custom-radio" style="margin-left:13px;">
                                             <input class="custom-control-input" type="radio" id="customRadio1" name="media" value="image" required>

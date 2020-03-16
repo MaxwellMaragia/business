@@ -4,6 +4,7 @@ if($_SESSION['admin'])
 {
     include 'functions/actions.php';
     $obj=new DataOperations();
+    $document = '';
 
     //get author
 
@@ -28,7 +29,7 @@ if($_SESSION['admin'])
             $media = $row['media_type'];
             $file = $row['media'];
             $date = $row['date'];
-
+            $c_document = $row['file'];
             $aid = $row['author'];
             $cid = $row['category'];
             $state = $row['state'];
@@ -107,6 +108,25 @@ if($_SESSION['admin'])
             $media_type = '';
         }
 
+        //check if pdf uploaded
+        if(is_uploaded_file($_FILES['pdf']['tmp_name']))
+        {
+            //save document to folder and database
+            if($c_document)
+            {
+                unlink($c_document);
+            }
+
+            $pdfname    = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
+            $extension  = pathinfo( $_FILES["pdf"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
+            $basename   = $pdfname . '.' . $extension; // 5dab1961e93a7_1571494241.pdf
+            $source     = $_FILES["pdf"]["tmp_name"];
+            $document   = "documents/blog/" . $basename;
+            $c_document   = "documents/blog/" . $basename;
+            move_uploaded_file( $source, $document );
+        }
+
+
        
 
 
@@ -141,6 +161,7 @@ if($_SESSION['admin'])
                             'keywords'=>$keywords,
                             'media_type'=>$media_type,
                             'media'=>$image,
+                            'file'=>$document,
                             'state'=>$state
                         );
 
@@ -176,6 +197,7 @@ if($_SESSION['admin'])
                             'keywords'=>$keywords,
                             'media_type'=>$media_type,
                             'media'=>$video,
+                            'file'=>$document,
                             'state'=>$state
                         );
 
@@ -190,6 +212,7 @@ if($_SESSION['admin'])
                 'heading'=>$heading,
                 'body'=>$body,
                 'keywords'=>$keywords,
+                'file'=>$document,
                 'state'=>$state
 
             );
@@ -310,6 +333,28 @@ else
                                                 <?=$body?>
                                     </textarea>
                                     </div>
+
+                                    <div class="form-group col-md-6">
+                                    <?php
+                                    
+                                    if($c_document)
+                                    {
+                                        ?>
+                                        <label>Current doc</label><br>
+                                        <a href="<?=$c_document?>" target="_blank"><?=$c_document?></a><br>
+                                        <?php
+                                    }
+                                    
+                                    ?>
+                                        <label for="exampleInputFile" style="margin-top:30px;">Upload new pdf document</label><br>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="pdf" accept="application/pdf">
+                                                <label class="custom-file-label" for="exampleInputFile">Select document</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group" style="margin-left:8px;">
                                         <label for="exampleInputEmail1">Media</label>

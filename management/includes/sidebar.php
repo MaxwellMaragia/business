@@ -291,6 +291,15 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="seo" class="nav-link">
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            SEO
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item has-treeview"
                 <?php if(isset($role)){
                     if($role!=1){
