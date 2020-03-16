@@ -161,7 +161,7 @@ if($_SESSION['admin'])
                             'keywords'=>$keywords,
                             'media_type'=>$media_type,
                             'media'=>$image,
-                            'file'=>$document,
+                            'file'=>$c_document,
                             'state'=>$state
                         );
 
@@ -197,7 +197,7 @@ if($_SESSION['admin'])
                             'keywords'=>$keywords,
                             'media_type'=>$media_type,
                             'media'=>$video,
-                            'file'=>$document,
+                            'file'=>$c_document,
                             'state'=>$state
                         );
 
@@ -212,7 +212,7 @@ if($_SESSION['admin'])
                 'heading'=>$heading,
                 'body'=>$body,
                 'keywords'=>$keywords,
-                'file'=>$document,
+                'file'=>$c_document,
                 'state'=>$state
 
             );
