@@ -12,6 +12,7 @@ if($get_insight)
         $body = $row['body'];
         $media = $row['media_type'];
         $file = $row['media'];
+        $pdf = $row['file'];
         $date = $row['date'];
 
         $aid = $row['author'];
@@ -110,6 +111,14 @@ else{
                         }
                         ?>
                         <div>
+                        <?php
+                                if($pdf)
+                                {
+                                    ?>
+                                    <a class="btn btn-small btn-custom-blue font-weight-700" target="_blank" href="management/<?=$pdf?>">Download pdf</a><br><br>
+                                    <?php
+                                }
+                                ?>
                             <?=$body?>
                             <script>document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='470'></div>");</script>
                         </div>
