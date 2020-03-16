@@ -139,6 +139,12 @@ else{
                                                         <img src="<?= $row['media'] ?>" height="100px" width="200px" alt="">
                                                     <?php
                                                     }
+                                                    else if($media == 'link')
+                                                    {
+                                                        ?>
+                                                         <iframe height="100" width="200" src="<?=$row['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                                        <?php
+                                                    }
                                                     ?>
                                                 </td>
                                                 <td>
