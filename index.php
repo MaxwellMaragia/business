@@ -90,6 +90,17 @@ if(isset($_POST['service'])){
           @media screen and (max-width: 1000px) {
             video{height:450px}
           }
+
+          .overlay{position: fixed; /* Sit on top of the page content */
+ display: none; /* Hidden by default */
+ width: 100%; /* Full width (cover the whole page) */
+ height: 100%; /* Full height (cover the whole page) */
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+ z-index: 2;}
         </style>
     </head>
     <body>
@@ -129,7 +140,7 @@ if(isset($_POST['service'])){
 
 
         <section class="wow fadeIn no-padding parallax xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image: url(&quot;http://placehold.it/1920x1200&quot;); background-position: 0px 0px; visibility: visible; animation-name: fadeIn;">
-            <div class="opacity-extra-medium bg-black">
+            <div class="opacity-extra-medium bg-black ">
               <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
                 <source src="management/<?=$banner_video?>" type="video/mp4">
               </video>
@@ -140,9 +151,9 @@ if(isset($_POST['service'])){
                         <div class="slider-typography">
                             <div class="slider-text-middle-main">
                                 <div class="slider-text-bottom">
-                                    <div class="col-lg-12 text-center margin-100px-bottom">
-                                      <h1 class="text-white font-weight-600 alt-font width-95 sm-width-100 "><?=$banner_heading?><span class="font-weight-300"> </span></h1>
-                                      <p class="text-large text-center font-weight-400 width-95 text-white  md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p>
+                                    <div class="col-lg-12 text-center margin-100px-bottom" >
+                                      <h1 class="text-white font-weight-800 alt-font width-100 sm-width-100 "><?=$banner_heading?><span class="font-weight-300"> </span></h1>
+                                      <p class="text-large text-center font-weight-600 width-95 text-white  md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p>
                                     </div>
                                 </div>
 
