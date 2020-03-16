@@ -1,5 +1,11 @@
 <?php
 include_once 'functions/functions.php';
+
+$sql = "SELECT value FROM home WHERE name='home_top_banner'";
+$exe = mysqli_query($obj->con,$sql);
+$get_banner = mysqli_fetch_assoc($exe);
+$banner = $get_banner['value'];
+
 $sql = "SELECT value FROM home WHERE name='youtube_video_url'";
 $exe = mysqli_query($obj->con,$sql);
 $get_data = mysqli_fetch_assoc($exe);
@@ -41,7 +47,19 @@ $exe = mysqli_query($obj->con,$sql);
 $get_data = mysqli_fetch_assoc($exe);
 $banner_button_link = $get_data['value'];
 
+
+session_start();
+if(isset($_POST['service'])){
+    $_SESSION['service']=$obj->con->real_escape_string(htmlspecialchars($_POST['service']));
+  if ($_SESSION['service']) {
+    header('location:service');
+  }
+
+}
 ?>
+
+
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -82,6 +100,8 @@ $banner_button_link = $get_data['value'];
             <!-- end navigation -->
         </header>
         <!-- end header -->
+
+        <?php if($banner==1){?>
         <!-- start parallax hero section -->
         <section class="wow fadeIn no-padding parallax " data-stellar-background-ratio="0.5" >
             <div class="opacity-extra-medium bg-black">
@@ -105,8 +125,36 @@ $banner_button_link = $get_data['value'];
             </div>
         </section>
         <!-- end parallax hero section -->
+        <?php }else{ ?>
 
-        <section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;" id="services">
+        <section class="wow fadeIn no-padding parallax xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image: url(&quot;http://placehold.it/1920x1200&quot;); background-position: 0px 0px; visibility: visible; animation-name: fadeIn;">
+            <div class="opacity-extra-medium bg-black">
+              <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
+                <source src="management/<?=$banner_video?>" type="video/mp4">
+              </video>
+            </div>
+            <div class="container-fluid padding-thirteen-lr one-fourth-screen xs-padding-15px-lr">
+                <div class="row height-100">
+                    <div class="position-relative height-100">
+                        <div class="slider-typography">
+                            <div class="slider-text-middle-main">
+                                <div class="slider-text-bottom">
+                                    <div class="col-lg-12 text-center">
+                                      <h1 class="text-white font-weight-600 alt-font width-95 sm-width-100 margin-60px-top">We are a fully fledged<span class="font-weight-300"> consulting firm.</span></h1>
+                                      <p class="text-large text-center font-weight-300 width-95 text-white  md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <?php } ?>
+
+        <section class="wow fadeIn bg-white" style="visibility: visible; animation-name: fadeIn;" id="services">
             <div class="container">
                 <div class="row">
                   <div class="col-md-12">
@@ -127,25 +175,16 @@ $banner_button_link = $get_data['value'];
                                 while($get_service = mysqli_fetch_assoc($exe))
                                 {
                                     ?>
-                                <div class="swiper-slide grid-item swiper-slide-active bg-light-gray" style="width: 273.75px; margin-right: 15px; height:200px">
+                                <div class="swiper-slide grid-item swiper-slide-active bg-custom-blue" style="width: 273.75px; margin-right: 15px; height:200px">
                                     <div class="text-center padding-eighteen-all feature-box-13 position-relative xs-margin-20px-top
                                     sm-margin-40px-top md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                                      <i class="<?=$get_service['icon']?> ico text-custom-blue icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
-                                      <a class="modal-popup wow fadeInUp" data-wow-delay="0.6s" href="#<?=$get_service['id']?>" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                                      <i class="<?=$get_service['icon']?> ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                                      <form method="post"><button name="service" value="<?=$get_service['id']?>" type="submit" class=" wow fadeInUp" data-wow-delay="0.6s" href="#<?=$get_service['id']?>" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;background: none; border: none;">
                                       <p class="text-medium text-extra-light-gray alt-font"><?=$get_service['heading']?></p>
-                                      </a>
+                                    </button></form>
                                       <div class="feature-box-overlay bg-deep-pink"></div>
                                    </div>
                                 </div>
-
-
-                        <!-- start modal pop-up -->
-                        <div id="<?=$get_service['id']?>" class="white-popup-block col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main padding-50px-all mfp-hide">
-                            <span class="text-custom-blue  alt-font text-extra-large font-weight-600 margin-15px-bottom display-block"><?=$get_service['heading']?></span>
-                            <p class="margin-four"><?=$get_service['body']?></p>
-                            <a class="btn btn-medium btn-rounded btn-dark-gray popup-modal-dismiss" href="#">Dismiss</a>
-                        </div>
-                        <!-- end modal pop-up -->
 
                                 <?php } ?>
                                 <!-- end slide item -->
@@ -354,27 +393,27 @@ $banner_button_link = $get_data['value'];
                     <div class="row show-grid xs-padding-right xs-padding-left">
                       <div class="industrie col-md-1"></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-thumb-up ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-thumb-up ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Insurance</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-bag ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-bag ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Retail</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-heart ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-heart ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Healthcare</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-pie-chart ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-pie-chart ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Private equity</p>
-                            <div class="feature-box-overlay bg-deep-pink"></div>
+                            <!-- <div class="feature-box-overlay bg-deep-pink"></div> -->
                         </div></div>
                         <div class="industries col-md-2 col-xs-6"><div class="text-center padding-eighteen-all feature-box-13 position-relative md-padding-ten-all sm-padding-25px-all xs-padding-eight-all">
-                            <i class="ti-music ico text-medium-gray icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
+                            <i class="ti-music ico text-custom-yellow icon-medium margin-15px-bottom xs-margin-10px-bottom"></i>
                             <p class="text-medium text-extra-light-gray alt-font">Entertainment</p>
                             <div class="feature-box-overlay bg-deep-pink"></div>
                         </div></div>

@@ -110,9 +110,8 @@ $ceo_image = $get_data['value'];
             <!-- end navigation -->
         </header>
         <!-- end header -->
-        
 
-        <section class="no-padding wow fadeIn bg-white margin-50px-top" id="services" style="visibility: visible; animation-name: fadeIn;">
+        <section class="no-padding wow fadeIn bg-white margin-100px-top" id="services" style="visibility: visible; animation-name: fadeIn;">
             <div class="container-fluid no-padding">
                 <div class="row equalize sm-equalize-auto no-margin">
                     <div class="col-md-6 col-sm-12 col-xs-12 position-relative sm-height-550px xs-height-350px cover-background wow slideInLeft md-text-left" data-wow-duration="900ms" style="background-image: url('management/<?=$about_header_image?>'); visibility: visible; animation-duration: 900ms; animation-name: slideInLeft; height: 639px;"></div>
@@ -129,7 +128,7 @@ $ceo_image = $get_data['value'];
             </div>
         </section>
 
-        <section class="wow fadeIn no-padding parallax one-fourth-screen sm-height-500px xs-height-350px background-position-x-50" data-stellar-background-ratio="0.5" style="background-image: url('management/<?=$blue_image?>'); background-position: 25px -155.5px; visibility: visible; animation-name: fadeIn;">
+        <section class="wow fadeIn no-padding parallax one-fourth-screen sm-height-500px xs-height-350px background-position-x-50 " data-stellar-background-ratio="0.5" style="background-image: url('management/<?=$blue_image?>'); background-position: 25px -155.5px; visibility: visible; animation-name: fadeIn;margin-top:-63px">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12"></div>
@@ -220,10 +219,10 @@ $ceo_image = $get_data['value'];
         <!-- end section -->
 
         <!-- start section -->
-        <section class="no-padding bg-light-gray wow fadeIn">
+        <section class=" bg-light-gray wow fadeIn">
             <div class="container">
                 <div class="row equalize sm-equalize-auto">
-                    <div class="col-md-5 col-sm-12 sm-text-center col-md-offset-1 sm-padding-50px-all xs-padding-15px-lr pull-right">
+                    <div class="xs-margin-50px-top col-md-5 col-sm-12 md-margin-100px-top sm-text-center col-md-offset-1 sm-padding-50px-all xs-padding-15px-lr pull-right">
                         <div class="display-table width-100 height-100">
                             <div class="display-table-cell vertical-align-middle">
                                 <i class="fas fa-quote-left text-deep-pink icon-medium margin-15px-bottom"></i>

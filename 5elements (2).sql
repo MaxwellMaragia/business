@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2020 at 07:17 AM
+-- Generation Time: Mar 16, 2020 at 01:19 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -174,13 +174,14 @@ CREATE TABLE `home` (
 
 INSERT INTO `home` (`name`, `value`, `id`) VALUES
 ('banner_heading', 'Our knowledge your asset', 1),
-('banner_text', 'Our client’s business challenges are our thinking and execution lab. At FE Advisory, it’s not about us. It’s about our client’s business potential', 2),
+('banner_text', 'Our clientï¿½s business challenges are our thinking and execution lab. At FE Advisory, itï¿½s not about us. Itï¿½s about our clientï¿½s business potential', 2),
 ('banner_button_text', 'Read more', 3),
 ('banner_button_link', 'https://5elements.com/about', 4),
 ('video', 'videos/5e6bc93267cf1_1584122162.mp4', 5),
 ('youtube_section_image', 'images/5e6bcb6fe7bf9_1584122735.jpg', 10),
 ('youtube_section_text', 'We are constantly striving to work on your idea', 11),
-('youtube_video_url', 'https://www.youtube.com/watch?v=-W6bh_W-VNY', 12);
+('youtube_video_url', 'https://www.youtube.com/watch?v=-W6bh_W-VNY', 12),
+('home_top_banner', '2', 13);
 
 -- --------------------------------------------------------
 
@@ -463,7 +464,7 @@ ALTER TABLE `Downloads`
 -- AUTO_INCREMENT for table `home`
 --
 ALTER TABLE `home`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `industries`
