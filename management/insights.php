@@ -14,8 +14,16 @@ else{
     {
         $id=$obj->con->real_escape_string(htmlentities($_POST['delete']));
         $image = $_POST['image'];
+        $pdf = $_POST['pdf'];
         $where=array("id"=>$id);
         unlink($image);
+
+        //delete file
+        if($pdf)
+        {
+            unlink($pdf);
+        }
+        
         if($obj->delete_record("news",$where))
         {
             $success="Insight has been removed";
@@ -170,6 +178,7 @@ else{
                                                         <div class="modal-footer">
                                                             <form action="" METHOD="POST">
                                                                 <input type="hidden" name="image" value="<?=$row['media']?>">
+                                                                <input type="hidden" name="pdf" value="<?=$row['file']?>">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                                                 <button  class="btn btn-primary" type="submit" name="delete" value="<?=$row['id']?>">Delete</button>
                                                             </form>
