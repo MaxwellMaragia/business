@@ -4,6 +4,7 @@ if($_SESSION['admin'])
 {
     include 'functions/actions.php';
     $obj=new DataOperations();
+    $document = '';
 
     //get author
 
@@ -115,11 +116,13 @@ if($_SESSION['admin'])
             {
                 unlink($c_document);
             }
+
             $pdfname    = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
             $extension  = pathinfo( $_FILES["pdf"]["name"], PATHINFO_EXTENSION ); // jpg,pdf
             $basename   = $pdfname . '.' . $extension; // 5dab1961e93a7_1571494241.pdf
             $source     = $_FILES["pdf"]["tmp_name"];
             $document   = "documents/blog/" . $basename;
+            $c_document   = "documents/blog/" . $basename;
             move_uploaded_file( $source, $document );
         }
 
@@ -158,6 +161,7 @@ if($_SESSION['admin'])
                             'keywords'=>$keywords,
                             'media_type'=>$media_type,
                             'media'=>$image,
+                            'file'=>$document,
                             'state'=>$state
                         );
 
@@ -193,6 +197,7 @@ if($_SESSION['admin'])
                             'keywords'=>$keywords,
                             'media_type'=>$media_type,
                             'media'=>$video,
+                            'file'=>$document,
                             'state'=>$state
                         );
 
@@ -207,6 +212,7 @@ if($_SESSION['admin'])
                 'heading'=>$heading,
                 'body'=>$body,
                 'keywords'=>$keywords,
+                'file'=>$document,
                 'state'=>$state
 
             );
