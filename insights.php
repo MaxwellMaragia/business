@@ -147,7 +147,7 @@ if(mysqli_num_rows($exe)>0)
                                                 <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 center-col slide-content">
                                                     <a href="insights_category?id=<?=$cid?>" class="text-white text-extra-small text-uppercase alt-font font-weight-600 highlight-bg-text letter-spacing-1 bg-black"><?=$category?></a>
                                                     <h6 class="margin-lr-auto width-80 md-width-100"><a href="insight?id=<?=$row['id']?>" class="font-weight-600 text-white alt-font"><?=$row['heading']?></a></h6>
-                                                    <a class="btn btn-small btn-transparent-white btn-rounded font-weight-700" href="insight?id=<?=$row['id']?>">Continue Reading<i class="ti-arrow-right"></i></a>
+                                                    <a class="btn btn-small btn-transparent-white  font-weight-700" href="insight?id=<?=$row['id']?>">Continue Reading<i class="ti-arrow-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>

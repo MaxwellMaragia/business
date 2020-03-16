@@ -30,7 +30,10 @@
                     <div class="row">
                         <!-- start logo -->
                         <div class="col-md-2 col-xs-5">
-                            <a href="index" title="5elements" class="logo"><img src="management/<?=$logo_url?>" data-rjs="management/<?=$logo_url?>" class="logo-dark" alt="5elements"><img src="management/<?=$logo_url?>" data-rjs="management/<?=$logo_url?>" alt="5elements" class="logo-light default"></a>
+                            <a href="index" title="5elements" class="logo">
+                              <img src="management/<?=$logo_url?>" data-rjs="management/<?=$logo_url?>" class="logo-dark" alt="5elements" style="margin-top: 7px;">
+                              <img src="management/<?=$logo_url?>" data-rjs="management/<?=$logo_url?>" alt="5elements" class="logo-light default" style="margin-top: 7px;">
+                            </a>
                         </div>
                         <!-- end logo -->
                         <div class="col-md-7 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
@@ -45,7 +48,7 @@
                               <ul id="accordion" class="nav navbar-nav navbar-left no-margin alt-font text-normal" data-in="fadeIn" data-out="fadeOut">
                                   <!-- start menu item -->
 
-                                
+
                                   <li>
                                       <a href="about">About us</a>
                                       <!-- start sub menu -->
@@ -72,9 +75,9 @@
                                           <a href="csr">CSR</a>
                                           <!-- start sub menu -->
                                       </li>
-                                    
+
                                   </div>
-                                
+
                                   <!-- end menu item -->
 
                               </ul>
