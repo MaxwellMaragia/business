@@ -127,7 +127,7 @@ if(isset($_POST['service'])){
         <!-- end parallax hero section -->
         <?php }else{ ?>
 
-<<<<<<< HEAD
+
         <section class="wow fadeIn no-padding parallax xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image: url(&quot;http://placehold.it/1920x1200&quot;); background-position: 0px 0px; visibility: visible; animation-name: fadeIn;">
             <div class="opacity-extra-medium bg-black">
               <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
@@ -155,8 +155,6 @@ if(isset($_POST['service'])){
 
         <?php } ?>
 
-=======
->>>>>>> 3bc992c992b43de54866bb82992d38340cc883a8
         <section class="wow fadeIn bg-white" style="visibility: visible; animation-name: fadeIn;" id="services">
             <div class="container">
                 <div class="row">
