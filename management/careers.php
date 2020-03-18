@@ -19,12 +19,12 @@ else{
     if(isset($_POST['delete']))
     {
         $id=$obj->con->real_escape_string(htmlentities($_POST['delete']));
-        $image = $_POST['image'];
+        $pdf = $_POST['pdf'];
         $where=array("id"=>$id);
-        unlink($image);
-        if($obj->delete_record("team",$where))
+        unlink($pdf);
+        if($obj->delete_record("careers",$where))
         {
-            $success="Team member has been removed";
+            $success="Career has been removed";
         }
     }
 }
@@ -76,6 +76,16 @@ else{
                             <div class="card-body">
                                 <a href="add_career" class="btn btn-outline-info btn-md" style="margin-bottom:10px;">Add new</a>
                                 <div class="table-responsive">
+                                <?php
+                                    if($success)
+                                    {
+                                        $obj->successDisplay($success);
+                                    }
+                                    if($error)
+                                    {
+                                        $obj->errorDisplay($error);
+                                    }
+                                    ?>
                                     <table class="table table-striped table-bordered dt-responsive nowrap" id="example">
                                         <thead>
                                         <tr>
@@ -122,9 +132,38 @@ else{
                                                 </td>
                                                 <td><?=$job?></td>
                                                 <td>
+                                                <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete<?=$row['id']?>"><span class="fa fa-trash"></span></button>
                                                     <a href="update_career?id=<?=$row['id']?>" class="btn btn-sm btn-info"><span class="fa fa-edit"></span></a>
                                                 </td>
                                             </tr>
+                                            <!--          delete modal-->
+                                            <div class="modal fade" id="delete<?=$row['id']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Delete prompt</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="alert alert-danger">
+                                                                Are you sure you want to remove this career?
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <form action="" METHOD="POST">
+                                                            
+                                                                <input type="hidden" name="pdf" value="<?=$row['media']?>">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                                <button  class="btn btn-primary" type="submit" name="delete" value="<?=$row['id']?>">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- end delete modal-->
                                             <?php
                                         }
                                         ?>
