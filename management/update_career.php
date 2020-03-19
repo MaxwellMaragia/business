@@ -33,6 +33,9 @@ else{
         $doc = $_POST['current_doc'];
 
 
+       
+
+
         if($_FILES['document']['tmp_name'])
         {
 
@@ -61,7 +64,17 @@ else{
 
         }
         else{
-            $data = array('title'=>$title,'description'=>$description,'contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
+
+            if(isset($_POST['delete']))
+            {
+                unlink($doc);
+                $data = array('title'=>$title,'description'=>$description,'media'=>'','contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
+    
+            }
+            else{
+                $data = array('title'=>$title,'description'=>$description,'contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
+            }
+           
         }
 
         $where = array('id'=>$id);
@@ -235,8 +248,26 @@ else{
                                         <input type="date" class="form-control" id="exampleInputEmail1" name="deadline" required="required" value="<?=$deadline?>">
                                     </div>
 
+                                    <?php
+                                    
+                                      if($document)
+                                        {
+                                            ?>
+                                            <div class="form-group col-md-6">
+                                                <div class="checkbox">
+                                                    <label>
+                                                    <input type="checkbox" name="delete">
+                                                    Remove existing pdf <a href="<?=$document?>" target="_blank">(Current pdf)</a>
+                                                    </label>
+                                                </div>
+                                                </div>
+                                            <?php
+                                        }
+                                    
+                                    ?>
+
                                     <div class="form-group  col-md-6">
-                                        <label for="exampleInputFile">Upload pdf attachment</label>
+                                        <label for="exampleInputFile">Upload new or replace existing pdf attachment</label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="document" accept="application/pdf">

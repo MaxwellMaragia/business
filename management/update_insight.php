@@ -19,46 +19,7 @@ if($_SESSION['admin'])
     $id = intval($_GET['id']);
 
     $where = array('id'=>$id);
-    $get_insight = $obj->fetch_records('news',$where);
-    if($get_insight)
-    {
-        foreach($get_insight as $row)
-        {
-            $title = $row['heading'];
-            $body = $row['body'];
-            $media = $row['media_type'];
-            $file = $row['media'];
-            $date = $row['date'];
-            $c_document = $row['file'];
-            $aid = $row['author'];
-            $cid = $row['category'];
-            $state = $row['state'];
-
-            //get category
-            $where = array('id'=>$cid);
-            $get_cat = $obj->fetch_records('categories',$where);
-            foreach ($get_cat as $row)
-            {
-                $category_name = $row['name'];
-            }
-
-            //get author
-            $where = array('id'=>$_SESSION['admin']);
-            $get_user = $obj->fetch_records('users',$where);
-            foreach ($get_user as $row)
-            {
-                
-                $role = $row['role'];
-               
-            }
-
-
-        }
-    }
-    else{
-        header('location:404');
-    }
-
+    
 
 
 
@@ -72,6 +33,7 @@ if($_SESSION['admin'])
         $heading = $obj->con->real_escape_string(htmlentities($_POST['title']));
         $body = $obj->con->real_escape_string($_POST['body']);
         $keywords = strip_tags($body);
+        $c_document = $_POST['current_doc'];
 
         if($role == 1){
             $state = intval($_POST['state']);
@@ -231,15 +193,33 @@ if($_SESSION['admin'])
             
         }
         else{
-            $data = array(
-                'category'=>$category,
-                'heading'=>$heading,
-                'body'=>$body,
-                'keywords'=>$keywords,
-                'file'=>$c_document,
-                'state'=>$state
 
-            );
+            if(isset($_POST['delete']))
+            {
+                unlink($_POST['delete']);
+                $data = array(
+                    'category'=>$category,
+                    'heading'=>$heading,
+                    'body'=>$body,
+                    'keywords'=>$keywords,
+                    'file'=>'',
+                    'state'=>$state
+    
+                );
+    
+            }
+            else{
+                $data = array(
+                    'category'=>$category,
+                    'heading'=>$heading,
+                    'body'=>$body,
+                    'keywords'=>$keywords,
+                    'file'=>$c_document,
+                    'state'=>$state
+    
+                );
+            }
+            
         }
    
 
@@ -255,6 +235,47 @@ if($_SESSION['admin'])
         }
 
     }
+
+    $get_insight = $obj->fetch_records('news',$where);
+    if($get_insight)
+    {
+        foreach($get_insight as $row)
+        {
+            $title = $row['heading'];
+            $body = $row['body'];
+            $media = $row['media_type'];
+            $file = $row['media'];
+            $date = $row['date'];
+            $c_document = $row['file'];
+            $aid = $row['author'];
+            $cid = $row['category'];
+            $state = $row['state'];
+
+            //get category
+            $where = array('id'=>$cid);
+            $get_cat = $obj->fetch_records('categories',$where);
+            foreach ($get_cat as $row)
+            {
+                $category_name = $row['name'];
+            }
+
+            //get author
+            $where = array('id'=>$_SESSION['admin']);
+            $get_user = $obj->fetch_records('users',$where);
+            foreach ($get_user as $row)
+            {
+                
+                $role = $row['role'];
+               
+            }
+
+
+        }
+    }
+    else{
+        header('location:404');
+    }
+
 }
 else
 {
@@ -351,7 +372,7 @@ else
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="News title" name="title" required value="<?=$title?>">
                                     </div>
 
-                                    <div class="form-group" style="margin-left:8px;">
+                                    <div class="form-group col-md-10">
                                         <label for="exampleInputEmail1">Description<span class="text-danger">*</span></label>
                                         <textarea class="textarea" placeholder="Place some text here"
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="body" required="required">
@@ -359,29 +380,37 @@ else
                                     </textarea>
                                     </div>
 
-                                    <div class="form-group col-md-6">
                                     <?php
                                     
                                     if($c_document)
-                                    {
-                                        ?>
-                                        <label>Current doc</label><br>
-                                        <a href="<?=$c_document?>" target="_blank"><?=$c_document?></a><br>
-                                        <?php
-                                    }
-                                    
-                                    ?>
-                                        <label for="exampleInputFile" style="margin-top:30px;">Upload new pdf document</label><br>
+                                      {
+                                          ?>
+                                          <div class="form-group col-md-6">
+                                              <div class="checkbox">
+                                                  <label>
+                                                  <input type="checkbox" name="delete" value="<?=$c_document?>">
+                                                  Remove existing pdf <a href="<?=$c_document?>" target="_blank">(Current pdf)</a>
+                                                  </label>
+                                              </div>
+                                              </div>
+                                          <?php
+                                      }
+                                  
+                                  ?>
+
+                                    <div class="form-group col-md-6">
+                                       <label for="exampleInputFile">Upload new pdf document</label><br>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="pdf" accept="application/pdf">
+                                                <input type="hidden" name="current_doc" value="<?=$c_document?>">
                                                 <label class="custom-file-label" for="exampleInputFile">Select document</label>
                                             </div>
                                         </div>
                                     </div>
 
 
-                                    <div class="form-group" style="margin-left:8px;">
+                                    <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">Media</label>
                                         <br>
                                         <?php
@@ -412,7 +441,7 @@ else
                                     </div>
 
 
-                                    <label for="exampleInputEmail1" style="margin-left:7px;">Select new</label><br>
+                                    <label for="exampleInputEmail1" style="margin-left:10px;">Select new</label><br>
                                     <div class="form-group row col-md-6">
 
                                         <div class="custom-control custom-radio" style="margin-left:13px;">
