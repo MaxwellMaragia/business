@@ -55,7 +55,7 @@ $body = $get_data['body'];
                     <div class="col-md-12 col-sm-12 col-xs-12 display-table page-title-large">
                         <div class="display-table-cell vertical-align-middle text-center padding-30px-tb">
                             <!-- start sub title -->
-                            <!-- <span class="text-white opacity6 alt-font margin-10px-bottom display-block text-uppercase text-small">25 April 2017&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;by <a href="blog-masonry.html" class="text-white">Jay Benjamin</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="blog-masonry.html" class="text-white">Design</a>, <a href="blog-masonry.html" class="text-white">Branding</a></span> -->
+                            <span class="text-white opacity6 alt-font margin-10px-bottom display-block text-small"><a href="index" class="text-white">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="index#services" class="text-white">Services</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<?=$title?> </span>
                             <!-- end sub title -->
                             <!-- start page title -->
                             <h1 class="text-white alt-font font-weight-600 margin-10px-bottom"><?=$title?></h1>
@@ -65,34 +65,16 @@ $body = $get_data['body'];
                 </div>
             </div>
         </section>
-        <section class="wow fadeIn padding-20px-tb border-bottom border-color-extra-light-gray" style="visibility: visible; animation-name: fadeIn;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 display-table">
-                        <div class="display-table-cell vertical-align-middle text-left">
-                            <div class="breadcrumb alt-font text-small no-margin-bottom">
-                                <!-- breadcrumb -->
-                                <ul>
-                                    <li><a href="#" class="text-medium-gray">Home</a></li>
-                                    <li><a href="index#services" class="text-medium-gray">Services</a></li>
-                                    <li class="text-medium-gray"><?=$title?></li>
-                                </ul>
-                                <!-- end breadcrumb -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
 
         <section class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 center-col last-paragraph-no-margin xs-text-center">
-                        <h5 class="alt-font font-weight-600 text-extra-dark-gray"><?=$title?></h5>
+                        <!-- <h5 class="alt-font font-weight-600 text-extra-dark-gray"><?=$title?></h5> -->
 
 
-                        <p class="text-large line-height-30 text-medium-gray text-justify xs-text-center xs-line-height-26"><?=$body?></p>
+                        <p class="text-large line-height-30 text-dark-gray text-justify xs-text-center xs-line-height-26"><?=$body?></p>
 
                     </div>
                 </div>

@@ -4,7 +4,7 @@ if($_SESSION['admin'])
 {
     include 'functions/actions.php';
     $obj=new DataOperations();
-    
+
 
     //get author
 
@@ -169,7 +169,7 @@ if($_SESSION['admin'])
             );
         }
 
-       
+
         if($obj->insert_record('news',$data))
         {
 
@@ -288,8 +288,8 @@ else
                                         <label for="exampleInputFile">Upload pdf document</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="pdf" accept="application/pdf">
-                                                <label class="custom-file-label" for="exampleInputFile">Select document</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="pdf" accept="application/pdf">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Select document</label> -->
                                             </div>
                                         </div>
                                     </div>
@@ -318,8 +318,8 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile1" name="image_file">
-                                                        <label class="custom-file-label" for="customFile1">Choose image</label>
+                                                        <input type="file" class="custom-file-inpu" id="customFile1" name="image_file">
+                                                        <!-- <label class="custom-file-label" for="customFile1">Choose image</label> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -331,21 +331,21 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile2" name="video_file">
-                                                        <label class="custom-file-label" for="customFile2">Choose video</label>
+                                                        <input type="file" class="custom-file-inpu" id="customFile2" name="video_file">
+                                                        <!-- <label class="custom-file-label" for="customFile2">Choose video</label> -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="step">
                                         <div class="link box">
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
-    
-                                                 <input type="url" class="form-control" id="customFile3" placeholder="format https://www.youtube.com/embed/XXbExVwuLAs" name="link">          
+
+                                                 <input type="url" class="form-control" id="customFile3" placeholder="format https://www.youtube.com/embed/XXbExVwuLAs" name="link">
                                                 </div>
                                             </div>
                                         </div>

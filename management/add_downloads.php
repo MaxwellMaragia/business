@@ -135,8 +135,8 @@ else{
                                         <label for="exampleInputFile">upload file</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="document" accept="application/pdf">
-                                                <label class="custom-file-label" for="exampleInputFile">Upload new file</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="document" accept="application/pdf">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Upload new file</label> -->
                                             </div>
                                         </div>
                                     </div>

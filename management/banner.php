@@ -231,8 +231,8 @@ else{
                                         <label for="exampleInputFile">Video file input <small class="text-info">(!!Rename your file to relevant one word before uploading)</small></label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="video" accept="video/*">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose video background</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="video" accept="video/*">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Choose video background</label> -->
                                             </div>
                                             <div class="input-group" style="margin-top:20px;">
                                                 <?php

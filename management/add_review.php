@@ -11,8 +11,8 @@ else{
     {
         header('location:500');
     }
-    
-    
+
+
     include_once 'functions/actions.php';
     $obj = new DataOperations();
     $error = $success = '';
@@ -155,8 +155,8 @@ else{
                                         <label for="exampleInputFile">Avatar</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="image/*" required="required">
-                                                <label class="custom-file-label" for="exampleInputFile">Select image</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="image" accept="image/*" required="required">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Select image</label> -->
                                             </div>
                                         </div>
                                     </div>
