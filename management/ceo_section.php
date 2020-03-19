@@ -187,7 +187,7 @@ else{
                                         <label for="exampleInputFile">CEO's image upload</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="" name="image" accept="application/pdf">
+                                                <input type="file" class="custom-file-input" id="" name="image" accept="image/*">
                                                 <label class="custom-file-label" for="exampleInputFile">CEO's image</label>
                                             </div>
                                         </div>

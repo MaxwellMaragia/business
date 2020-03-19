@@ -318,7 +318,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-inpu" id="customFile1" name="image_file">
+                                                        <input type="file" class="custom-file-inpu" id="customFile1" name="image_file" accept="image/*">
                                                         <!-- <label class="custom-file-label" for="customFile1">Choose image</label> -->
                                                     </div>
                                                 </div>
@@ -331,7 +331,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-inpu" id="customFile2" name="video_file">
+                                                        <input type="file" class="custom-file-inpu" id="customFile2" name="video_file" accept="video/*">
                                                         <!-- <label class="custom-file-label" for="customFile2">Choose video</label> -->
                                                     </div>
                                                 </div>

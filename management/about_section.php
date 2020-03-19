@@ -240,7 +240,7 @@ else{
 
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="application/pdf">
+                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="images/*">
                                                 <label class="custom-file-label" for="exampleInputFile">Upload new header image</label>
                                             </div>
                                         </div>                                    </div>
@@ -252,7 +252,7 @@ else{
                                         <label for="exampleInputFile">Header downloadable file</label>
                                         <a href="documents/<?=$current_file?>"> View current file</a>
                                         <!-- <div class="input-group"> -->
-                                                <input type="file" class="form-control custom-file-inpu" id="file_uploa" name="document" accept="image/*" >
+                                                <input type="file" class="form-control custom-file-inpu" id="file_uploa" name="document" accept="application/pdf" >
                                                 <!-- <label class="custom-file-labe" for="exampleInputFile">up</label> -->
 
                                         <!-- </div> -->
