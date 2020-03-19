@@ -398,7 +398,7 @@ else
                                   
                                   ?>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6 check">
                                        <label for="exampleInputFile">Upload new pdf document</label><br>
                                         <div class="input-group">
                                             <div class="custom-file">
@@ -558,6 +558,14 @@ else
             var targetBox = $("." + inputValue);
             $(".box").not(targetBox).hide();
             $(targetBox).show();
+        });
+
+        $('input:checkbox').change(function(){
+            if($(this).is(":checked")) {
+                $('div.check').addClass("d-none");
+            } else {
+                $('div.check').removeClass("d-none");
+            }
         });
     });
 </script>
