@@ -12,7 +12,7 @@ else{
     {
         header('location:500');
     }
-    
+
 
     include_once 'functions/actions.php';
     $obj = new DataOperations();
@@ -59,7 +59,7 @@ else{
         else{
             $data = array('title'=>$title,'description'=>$description,'date'=>$date,'contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
         }
-        
+
 
 
         if($obj->insert_record('careers',$data))
@@ -136,9 +136,9 @@ else{
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form role="form" method="post" action="" enctype="multipart/form-data">
-                            
+
                                 <div class="card-body">
-                                
+
                                     <div class="form-group  col-md-6">
                                     <p>Fields marked with (<span class="text-danger">*</span>) are required</p>
                                         <label for="exampleInputEmail1">Title<span class="text-danger">*</span></label>
@@ -179,8 +179,8 @@ else{
                                         <label for="exampleInputFile">Upload pdf attachment</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="document" accept="application/pdf">
-                                                <label class="custom-file-label" for="exampleInputFile">Document</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="document" accept="application/pdf">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile"></label> -->
                                             </div>
                                         </div>
                                     </div>

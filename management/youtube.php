@@ -161,9 +161,9 @@ else{
                                         <label for="exampleInputFile">Banner image</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="image/*">
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="image" accept="image/*">
                                                 <input type="hidden" value=<?=$banner_image?> name="c_image">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose background image</label>
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Choose background image</label> -->
                                             </div>
                                             <div style="margin-top:20px;" class="input-group">
                                                 <?php

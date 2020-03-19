@@ -11,7 +11,7 @@ else{
     {
         header('location:500');
     }
-    
+
 
     include_once 'functions/actions.php';
     $obj = new DataOperations();
@@ -305,8 +305,8 @@ else{
                                         <label for="exampleInputFile">Logo</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="logo" accept="image/*">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose logo</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="logo" accept="image/*">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Choose logo</label> -->
                                             </div>
                                             <div class="input-group" style="margin-top:20px;">
                                                 <?php
@@ -332,8 +332,8 @@ else{
                                         <label for="exampleInputFile">Fav icon</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="favicon" accept="image/*">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose favicon</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="favicon" accept="image/*">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Choose favicon</label> -->
                                             </div>
                                             <div class="input-group" style="margin-top:20px;">
                                                 <?php

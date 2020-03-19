@@ -175,8 +175,8 @@ else{
                                         <label for="exampleInputFile">Profile picture<span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="image/*" required="required">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose profile</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="image" accept="image/*" required="required">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Choose profile</label> -->
                                             </div>
                                         </div>
                                     </div>

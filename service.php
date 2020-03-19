@@ -89,7 +89,7 @@ $body = $get_data['body'];
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 center-col last-paragraph-no-margin xs-text-center">
-                        <h5 class="alt-font font-weight-600 text-extra-dark-gray"><?=$title?></h5>
+                        <!-- <h5 class="alt-font font-weight-600 text-extra-dark-gray"><?=$title?></h5> -->
 
 
                         <p class="text-large line-height-30 text-medium-gray text-justify xs-text-center xs-line-height-26"><?=$body?></p>

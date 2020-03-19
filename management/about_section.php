@@ -156,6 +156,12 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php include_once 'includes/resources.php'?>
     <script src="functions/co_wordCount_dei.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $('#file-upload').change(function() {
+  alert('wewe');
+  });
+
+    </script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -243,16 +249,14 @@ else{
                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg Tagline" value="<?=$button_text?>" name="button_text">
                                     </div>
 
-                                    <div class="form-group  col-md-12">
                                         <label for="exampleInputFile">Header downloadable file</label>
                                         <a href="documents/<?=$current_file?>"> View current file</a>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="document" accept="image/*">
-                                                <label class="custom-file-label" for="exampleInputFile">Upload new file</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <!-- <div class="input-group"> -->
+                                                <input type="file" class="form-control custom-file-inpu" id="file_uploa" name="document" accept="image/*" >
+                                                <!-- <label class="custom-file-labe" for="exampleInputFile">up</label> -->
+
+                                        <!-- </div> -->
+
 
 
 
