@@ -266,7 +266,7 @@ else{
                                     
                                     ?>
 
-                                    <div class="form-group  col-md-6">
+                                    <div class="form-group  col-md-6 check">
                                         <label for="exampleInputFile">Upload new or replace existing pdf attachment</label>
                                         <div class="input-group">
                                             <div class="custom-file">
@@ -309,5 +309,17 @@ else{
 
 <!-- jQuery -->
 <?php include_once 'includes/scripts.php'?>
+<script>
+    $(document).ready(function(){
+
+        $('input:checkbox').change(function(){
+            if($(this).is(":checked")) {
+                $('div.check').addClass("d-none");
+            } else {
+                $('div.check').removeClass("d-none");
+            }
+        });
+    });
+</script>
 </body>
 </html>
