@@ -152,7 +152,9 @@ if($_SESSION['admin'])
 
         if($media_type == 'link')
         {
-            $link = $obj->con->real_escape_string(htmlentities($_POST['link']));
+            $url = $obj->con->real_escape_string(htmlentities($_POST['link']));
+            preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
+            $video_id = $matches[1];
             $data = array(
                 'category'=>$category,
                 'heading'=>$heading,
@@ -163,7 +165,7 @@ if($_SESSION['admin'])
                 'author'=>$aid,
                 'date'=>$date,
                 'state'=>$state,
-                'media'=>$link
+                'media'=>$video_id
             );
         }
 

@@ -111,7 +111,7 @@ else{
                         }
                         else if($media == 'link'){
                             ?>
-                            <iframe width="100%" height="450" src="<?=$file?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                            <iframe width="100%" height="450" src="https://www.youtube.com/embed/<?=$file?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
                             <?php
                         }
                         ?>

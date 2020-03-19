@@ -142,7 +142,7 @@ else{
                                                     else if($media == 'link')
                                                     {
                                                         ?>
-                                                         <iframe height="100" width="200" src="<?=$row['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                                         <iframe height="100" width="200" src="https://www.youtube.com/embed/<?=$row['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
                                                         <?php
                                                     }
                                                     ?>

@@ -294,7 +294,7 @@ if(isset($_POST['service'])){
                                               }
                                               else if($media_file=='link'){
                                                 ?>
-                                                <iframe height="218" width="100%" src="<?=$get_insight['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                                <iframe height="218" width="100%" src="https://www.youtube.com/embed/<?=$get_insight['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
                                             <?php
                                             }
                                               

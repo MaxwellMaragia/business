@@ -209,7 +209,7 @@ if(mysqli_num_rows($exe)>0)
                                         else if($row['media_type']=='link')
                                         {
                                             ?>
-                                            <iframe height="250" width="100%" src="<?=$row['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                            <iframe height="250" width="100%" src="https://www.youtube.com/embed/<?=$row['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
                                             <?php
                                         }
                                         ?>

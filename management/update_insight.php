@@ -34,6 +34,7 @@ if($_SESSION['admin'])
         $body = $obj->con->real_escape_string($_POST['body']);
         $keywords = strip_tags($body);
         $c_document = $_POST['current_doc'];
+        $file = $_POST['current_file'];
 
         if($role == 1){
             $state = intval($_POST['state']);
@@ -178,18 +179,22 @@ if($_SESSION['admin'])
                     unlink($file);
                 }
                 
-                $link = $obj->con->real_escape_string(htmlentities($_POST['link']));
-                $data = array(
-                    'category'=>$category,
-                    'heading'=>$heading,
-                    'body'=>"$body",
-                    'keywords'=>$keywords,
-                    'media_type'=>$media_type,
-                    'file'=>$document,
-                    'state'=>$state,
-                    'media'=>"$link"
-                );
-            }
+              
+                $url = $obj->con->real_escape_string(htmlentities($_POST['link']));
+                preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
+                $video_id = $matches[1];
+                    $data = array(
+                        'category'=>$category,
+                        'heading'=>$heading,
+                        'body'=>"$body",
+                        'keywords'=>$keywords,
+                        'media_type'=>$media_type,
+                        'file'=>$document,
+                        'state'=>$state,
+                        'media'=>"$video_id"
+                    );
+                    
+                }
             
         }
         else{
@@ -404,6 +409,7 @@ else
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="pdf" accept="application/pdf">
                                                 <input type="hidden" name="current_doc" value="<?=$c_document?>">
+                                                
                                                 <label class="custom-file-label" for="exampleInputFile">Select document</label>
                                             </div>
                                         </div>
@@ -412,6 +418,7 @@ else
 
                                     <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">Media</label>
+                                        <input type="hidden" name="current_file" value="<?=$file?>">
                                         <br>
                                         <?php
                                         if($media == 'image')
@@ -434,7 +441,7 @@ else
                                         {
                                             ?>
                                             
-                                            <iframe height="160" width="200" src="<?=$file?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
+                                            <iframe height="160" width="200" src="https://www.youtube.com/embed/<?=$file?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
                                             <?php
                                         }
                                         ?>
@@ -489,7 +496,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
     
-                                                 <input type="url" class="form-control" id="customFile3" placeholder="format https://www.youtube.com/embed/XXbExVwuLAs" name="link">          
+                                                 <input type="url" class="form-control" id="customFile3" placeholder="Paste youtube video url" name="link">          
                                                 </div>
                                             </div>
                                         </div>
