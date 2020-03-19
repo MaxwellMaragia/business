@@ -407,10 +407,9 @@ else
                                        <label for="exampleInputFile">Upload new pdf document</label><br>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="pdf" accept="application/pdf">
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="pdf" accept="application/pdf">
                                                 <input type="hidden" name="current_doc" value="<?=$c_document?>">
 
-                                                <label class="custom-file-label" for="exampleInputFile">Select document</label>
                                             </div>
                                         </div>
                                     </div>
@@ -470,8 +469,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile1" name="image_file" accept="image/*">
-                                                        <label class="custom-file-label" for="customFile1">Choose image</label>
+                                                        <input type="file" class="custom-file-inpu" id="customFile1" name="image_file" accept="image/*">
                                                     </div>
                                                 </div>
                                             </div>
@@ -483,8 +481,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile2" name="video_file" accept="video/*">
-                                                        <label class="custom-file-label" for="customFile2">Choose video</label>
+                                                        <input type="file" class="custom-file-inpu" id="customFile2" name="video_file" accept="video/*">
                                                     </div>
                                                 </div>
                                             </div>
