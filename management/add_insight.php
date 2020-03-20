@@ -345,7 +345,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
 
-                                                 <input type="url" class="form-control" id="customFile3" placeholder="format https://www.youtube.com/embed/XXbExVwuLAs" name="link">
+                                                 <input type="url" class="form-control" id="customFile3" placeholder="Paste youtube video url" name="link">
                                                 </div>
                                             </div>
                                         </div>
