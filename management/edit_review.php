@@ -11,7 +11,7 @@ else{
     {
         header('location:500');
     }
-    
+
 
     include_once 'functions/actions.php';
     $obj = new DataOperations();
@@ -125,7 +125,7 @@ else{
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-  
+
         <section class="content-header">
             <ol class="breadcrumb">
                 <li><a href="reviews"><i class="fa fa-dashboard"></i> Reviews/</a></li>
@@ -189,9 +189,9 @@ else{
                                         <label for="exampleInputFile">Avatar</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="image" accept="image/*" >
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="image" accept="image/*" >
                                                 <input type="hidden" name="image_old" value="<?=$u_image?>">
-                                                <label class="custom-file-label" for="exampleInputFile">Select new image</label>
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Select new image</label> -->
                                             </div>
                                             <div class="input-group" style="margin-top:10px;">
                                                 <img src="<?= $u_image ?>" alt="<?= $u_name ?>" height="100px" width="100px" >

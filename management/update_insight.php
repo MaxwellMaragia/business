@@ -19,7 +19,7 @@ if($_SESSION['admin'])
     $id = intval($_GET['id']);
 
     $where = array('id'=>$id);
-    
+
 
 
 
@@ -38,7 +38,7 @@ if($_SESSION['admin'])
 
         if($role == 1){
             $state = intval($_POST['state']);
-            
+
         }
 
 
@@ -90,7 +90,7 @@ if($_SESSION['admin'])
         }
 
 
-       
+
 
 
         if($media_type)
@@ -107,7 +107,7 @@ if($_SESSION['admin'])
                     } else if($_FILES['image_file']['size'] > 1) {
 
                         //save image to folder and database
-                       
+
                         if($media!='link'){
                             unlink($file);
                         }
@@ -146,7 +146,7 @@ if($_SESSION['admin'])
                     } else if($_FILES['video_file']['size'] > 1) {
 
                         //save image to folder and database
-                        
+
                         if($media!='link'){
                             unlink($file);
                         }
@@ -178,8 +178,8 @@ if($_SESSION['admin'])
                 {
                     unlink($file);
                 }
-                
-              
+
+
                 $url = $obj->con->real_escape_string(htmlentities($_POST['link']));
                 preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
                 $video_id = $matches[1];
@@ -193,9 +193,9 @@ if($_SESSION['admin'])
                         'state'=>$state,
                         'media'=>"$video_id"
                     );
-                    
+
                 }
-            
+
         }
         else{
 
@@ -209,9 +209,9 @@ if($_SESSION['admin'])
                     'keywords'=>$keywords,
                     'file'=>'',
                     'state'=>$state
-    
+
                 );
-    
+
             }
             else{
                 $data = array(
@@ -221,12 +221,12 @@ if($_SESSION['admin'])
                     'keywords'=>$keywords,
                     'file'=>$c_document,
                     'state'=>$state
-    
+
                 );
             }
-            
+
         }
-   
+
 
         $where = array('id'=>$id);
 
@@ -269,9 +269,9 @@ if($_SESSION['admin'])
             $get_user = $obj->fetch_records('users',$where);
             foreach ($get_user as $row)
             {
-                
+
                 $role = $row['role'];
-               
+
             }
 
 
@@ -346,7 +346,7 @@ else
                     </div>
                     <div class="col-md-12">
                         <!-- general form elements -->
-                        
+
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Update Insight</h3>
@@ -386,7 +386,7 @@ else
                                     </div>
 
                                     <?php
-                                    
+
                                     if($c_document)
                                       {
                                           ?>
@@ -400,17 +400,16 @@ else
                                               </div>
                                           <?php
                                       }
-                                  
+
                                   ?>
 
                                     <div class="form-group col-md-6 check">
                                        <label for="exampleInputFile">Upload new pdf document</label><br>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="pdf" accept="application/pdf">
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="pdf" accept="application/pdf">
                                                 <input type="hidden" name="current_doc" value="<?=$c_document?>">
-                                                
-                                                <label class="custom-file-label" for="exampleInputFile">Select document</label>
+
                                             </div>
                                         </div>
                                     </div>
@@ -440,7 +439,7 @@ else
                                         else if($media == 'link')
                                         {
                                             ?>
-                                            
+
                                             <iframe height="160" width="200" src="https://www.youtube.com/embed/<?=$file?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
                                             <?php
                                         }
@@ -470,8 +469,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile1" name="image_file">
-                                                        <label class="custom-file-label" for="customFile1">Choose image</label>
+                                                        <input type="file" class="custom-file-inpu" id="customFile1" name="image_file" accept="image/*">
                                                     </div>
                                                 </div>
                                             </div>
@@ -483,8 +481,7 @@ else
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile2" name="video_file">
-                                                        <label class="custom-file-label" for="customFile2">Choose video</label>
+                                                        <input type="file" class="custom-file-inpu" id="customFile2" name="video_file" accept="video/*">
                                                     </div>
                                                 </div>
                                             </div>
@@ -495,8 +492,8 @@ else
                                         <div class="link box">
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
-    
-                                                 <input type="url" class="form-control" id="customFile3" placeholder="Paste youtube video url" name="link">          
+
+                                                 <input type="url" class="form-control" id="customFile3" placeholder="Paste youtube video url" name="link">
                                                 </div>
                                             </div>
                                         </div>

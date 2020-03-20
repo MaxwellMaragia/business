@@ -12,7 +12,7 @@ else{
     {
         header('location:500');
     }
-    
+
 
     include_once 'functions/actions.php';
     $obj = new DataOperations();
@@ -33,7 +33,7 @@ else{
         $doc = $_POST['current_doc'];
 
 
-       
+
 
 
         if($_FILES['document']['tmp_name'])
@@ -46,7 +46,7 @@ else{
             } else if($_FILES['document']['size'] > 1) {
 
                 //save document to folder and database
-               
+
                 unlink($doc);
                 //rename file before uploading
                 $filename   = uniqid() . "_" . time(); // 5dab1961e93a7_1571494241
@@ -69,12 +69,12 @@ else{
             {
                 unlink($doc);
                 $data = array('title'=>$title,'description'=>$description,'media'=>'','contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
-    
+
             }
             else{
                 $data = array('title'=>$title,'description'=>$description,'contract'=>$contract,'state'=>$state,'deadline'=>$deadline);
             }
-           
+
         }
 
         $where = array('id'=>$id);
@@ -249,7 +249,7 @@ else{
                                     </div>
 
                                     <?php
-                                    
+
                                       if($document)
                                         {
                                             ?>
@@ -263,15 +263,14 @@ else{
                                                 </div>
                                             <?php
                                         }
-                                    
+
                                     ?>
 
                                     <div class="form-group  col-md-6 check">
                                         <label for="exampleInputFile">Upload new or replace existing pdf attachment</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="document" accept="application/pdf">
-                                                <label class="custom-file-label" for="exampleInputFile">Document</label>
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="document" accept="application/pdf">
                                                 <input type="hidden" name="current_doc" value="<?=$document?>">
                                             </div>
                                         </div>

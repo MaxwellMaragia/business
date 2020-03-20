@@ -8,7 +8,7 @@
 
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 hidden-xs xs-no-padding-lr text-right">
-                          <a href="csr" class="text-link-white xs-width-100" title="CSR">CSR</a>
+                          <a href="csrx" class="text-link-white xs-width-100" title="CSR">CSR</a>
                           <div class="separator-line-verticle-extra-small bg-dark-gray display-inline-block margin-two-lr hidden-xs position-relative vertical-align-middle top-minus1"></div>
                           <a href="careers" class="text-link-white xs-width-100" title="careers">Careers</a>
                           <div class="separator-line-verticle-extra-small bg-dark-gray display-inline-block margin-two-lr hidden-xs position-relative vertical-align-middle top-minus1"></div>
