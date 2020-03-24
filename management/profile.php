@@ -102,12 +102,12 @@ else{
 
                                     <div class="form-group">
                                       <label for="exampleInputPassword1">old password</label>
-                                        <input type="password" class="form-control" id="exampleInputEmail1" placeholder="" value="" name="oldPassword">
+                                        <input type="password" class="form-control" id="exampleInputEmail1" placeholder="" value="" name="oldPassword" required="required">
                                     </div>
 
                                     <div class="form-group">
                                       <label for="exampleInputPassword1">New password</label>
-                                        <input type="password" class="form-control" id="exampleInputEmail1" placeholder="" value="" name="newPassword">
+                                        <input type="password" class="form-control" id="exampleInputEmail1" placeholder="" value="" name="newPassword" required="required">
                                     </div>
 
 

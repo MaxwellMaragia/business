@@ -108,12 +108,12 @@ else{
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg John Doe" value="" name="name">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg John Doe" value="" name="name" required="required">
                                     </div>
 
                                     <div class="form-group">
                                       <label for="exampleInputPassword1">job Id/national id</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" value="" name="id">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="" value="" name="id" required="required">
                                     </div>
                                     <div class="form-group">
                                       <label for="exampleInputPassword1">Role</label>
