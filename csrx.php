@@ -278,7 +278,7 @@ $desc = $get_data['value'];
             </div>
             </section>
 
-        <section class="no-padding wow fadeIn bg-light-gray" id="services" style="visibility: visible; animation-name: fadeIn;">
+        <section class="no-padding wow fadeIn bg-white" id="services" style="visibility: visible; animation-name: fadeIn;">
             <div class="container-fluid no-padding">
                 <div class="row equalize sm-equalize-auto no-margin">
                     <div class="col-md-6 col-sm-12 col-xs-12 display-table wow fadeIn last-paragraph-no-margin sm-text-center" style="visibility: visible; animation-name: fadeIn; height: 678px;">

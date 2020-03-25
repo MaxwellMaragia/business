@@ -88,19 +88,23 @@ if(isset($_POST['service'])){
 
         <style media="screen">
           @media screen and (max-width: 1000px) {
-            video{height:450px}
+            .vida{
+              background:#23225e;
+              padding-top: 50px;
+
+            }
+            .vida video{
+              width:auto;
+              height:300px;
+
+            }
+
+            .maneno .blue-part{
+              background: none;
+              text-align: center;
+            }
           }
 
-          .overlay{position: fixed; /* Sit on top of the page content */
- display: none; /* Hidden by default */
- width: 100%; /* Full width (cover the whole page) */
- height: 100%; /* Full height (cover the whole page) */
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- background-color: rgba(0,0,0,0.5); /* Black background with opacity */
- z-index: 2;}
         </style>
     </head>
     <body>
@@ -115,16 +119,16 @@ if(isset($_POST['service'])){
         <?php if($banner==1){?>
         <!-- start parallax hero section -->
         <section class="wow fadeIn no-padding parallax " data-stellar-background-ratio="0.5" >
-            <div class="opacity-extra-medium bg-black">
+            <div class="vida opacity-extra-medium bg-black">
               <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
                 <source src="management/<?=$banner_video?>" type="video/mp4">
               </video>
             </div>
-            <div class="container-fluid position-relative full-screen">
-                <div class="slider-typography">
+            <div class=" container-fluid position-relative full-screen">
+                <div class="maneno slider-typography">
                     <div class="slider-text-middle-main">
                         <div class="slider-text-bottom ">
-                            <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pull-right bg-custom-blue-opacity padding-six-lr md-padding-seven-lr padding-five-tb xs-padding-30px-all last-paragraph-no-margin">
+                            <div class=" blue-part col-lg-6 col-md-7 col-sm-12 col-xs-12 pull-right bg-custom-blue-opacity padding-six-lr md-padding-seven-lr padding-five-tb xs-padding-20px-all last-paragraph-no-margin">
                                 <!-- <div class="box-separator-line width-180px bg-white md-width-120px sm-width-90px sm-display-none"></div> -->
                                 <h1 class="text-white  font-weight-600 alt-font width-95 sm-width-100 margin-60px-top"><?=$banner_heading?></h1>
                                 <p class="text-large font-weight-300 text-white width-75 md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p><br>
@@ -297,7 +301,7 @@ if(isset($_POST['service'])){
                                                 <iframe height="218" width="100%" src="https://www.youtube.com/embed/<?=$get_insight['media']?>?rel=0&amp;controls=0&amp;showinfo=0" allowfullscreen="" id="fitvid0"></iframe>
                                             <?php
                                             }
-                                              
+
                                               ?>
 
                                           </a>
