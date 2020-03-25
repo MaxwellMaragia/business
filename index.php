@@ -88,20 +88,22 @@ if(isset($_POST['service'])){
 
         <style media="screen">
           @media screen and (max-width: 1000px) {
+            .banner-juu{
+              height:520px;
+            }
             .vida{
               background:#23225e;
-              padding-top: 50px;
-
+              marin-top: 10px;
             }
             .vida video{
-              width:auto;
-              height:300px;
-
+              width:600px;
+              height:auto;
             }
 
             .maneno .blue-part{
               background: none;
-              text-align: center;
+              text-align: center;margin-top: 10px;
+              /* visibility: hidden; */
             }
           }
 
@@ -118,7 +120,7 @@ if(isset($_POST['service'])){
 
         <?php if($banner==1){?>
         <!-- start parallax hero section -->
-        <section class="wow fadeIn no-padding parallax " data-stellar-background-ratio="0.5" >
+        <section class="banner-juu wow fadeIn no-padding parallax " data-stellar-background-ratio="0.5" >
             <div class="vida opacity-extra-medium bg-black">
               <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
                 <source src="management/<?=$banner_video?>" type="video/mp4">
