@@ -92,28 +92,59 @@ if(isset($_POST['service'])){
         <?php include_once 'plugins/resources.php'?>
 
         <style media="screen">
-          @media screen and (max-width: 1000px) {
+          @media (max-width: 1000px) and (orientation: portrait){
             video{
               visibility: hidden;
             }
             .banner-juu{
-              height:520px;
+              /* height:520px; */
             }
             .banner_custom{
               background-image: url('management/<?=$phone_banner?>');
-              marin-top: 10px;
+              /* marin-top: 10px; */
               background-position: center; /* Center the image */
               background-repeat: no-repeat; /* Do not repeat the image */
               background-size: cover;
 
             }
 
+            .maneno .blue-part {
+              text-align: center;
+              margin-top: -100px;
+              /* height:120px */
+              }
 
-            .maneno .blue-part{
-              background: none;
-              text-align: center;margin-top: 10px;
+            .maneno .blue-part h1{
+              /* margin-top: -200px; */
+              /* color:red; */
+            }
+          }
+          @media (orientation: landscape) and (max-width: 1000px){
+
+            video{
+              visibility: hidden;
+            }
+
+            .banner_custom{
+              background-image: url('management/<?=$phone_banner?>');
+              /* marin-top: 10px; */
+              background-position: center; /* Center the image */
+              background-repeat: no-repeat; /* Do not repeat the image */
+              background-size: cover;
+
+            }
+
+            .maneno .blue-part {
+              text-align: center;
+              margin-top: -80px;
+              height:80px;
+
               /* visibility: hidden; */
             }
+          }
+          .maneno .blue-part h1{
+            text-align: center;
+            margin-top: -10px;
           }
 
         </style>
