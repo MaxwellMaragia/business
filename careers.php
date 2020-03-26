@@ -24,7 +24,7 @@ include "functions/functions.php";
         <!-- end header -->
 
 
-        <section class="wow fadeIn bg-white margin-50px-top" style="visibility: visible; animation-name: fadeIn;">
+        <section class="wow fadeIn bg-white margin-50px-top xs-margin-100px-top" style="visibility: visible; animation-name: fadeIn;">
                     <div class="container">
                       <div class="row text-center margin-40px-bottom">
                           <div class="col-md-12">
