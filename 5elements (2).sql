@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 03:07 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Host: localhost
+-- Generation Time: Mar 26, 2020 at 12:15 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -181,7 +181,8 @@ INSERT INTO `home` (`name`, `value`, `id`) VALUES
 ('youtube_section_image', 'images/5e6bcb6fe7bf9_1584122735.jpg', 10),
 ('youtube_section_text', 'We are constantly striving to work on your idea', 11),
 ('youtube_video_url', 'https://www.youtube.com/watch?v=-W6bh_W-VNY', 12),
-('home_top_banner', '1', 13);
+('home_top_banner', '1', 13),
+('phone_banner', 'images/5e7c8e012325b.jpg', 14);
 
 -- --------------------------------------------------------
 
@@ -467,7 +468,7 @@ ALTER TABLE `downloads`
 -- AUTO_INCREMENT for table `home`
 --
 ALTER TABLE `home`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `industries`

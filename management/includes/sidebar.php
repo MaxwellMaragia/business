@@ -80,6 +80,12 @@
                                 <p>Youtube video section</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="phone" class="nav-link">
+
+                                <p>Phone/mobile config</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
