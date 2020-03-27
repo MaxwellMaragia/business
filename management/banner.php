@@ -17,6 +17,19 @@ else{
     $obj = new DataOperations();
     $error = $success = '';
 
+    $sql = "SELECT value FROM home WHERE name='phone_banner'";
+    $exe = mysqli_query($obj->con,$sql);
+    while($get_data = mysqli_fetch_assoc($exe))
+    {
+        $banner_phone_image = $get_data['value'];
+    }
+
+    $sql = "SELECT value FROM home WHERE name='media_type'";
+    $exe = mysqli_query($obj->con,$sql);
+    while($get_data = mysqli_fetch_assoc($exe))
+    {
+        $m_t = $get_data['value'];
+    }
 
     $sql = "SELECT value FROM home WHERE name='banner_heading'";
     $exe = mysqli_query($obj->con,$sql);
@@ -66,6 +79,7 @@ else{
         $bu_text = $obj->con->real_escape_string(htmlspecialchars($_POST['button_text']));
         $b_url = $obj->con->real_escape_string(htmlspecialchars($_POST['button_url']));
         $banner_type = $obj->con->real_escape_string(htmlspecialchars($_POST['banner_type']));
+        $m_t= $obj->con->real_escape_string(htmlspecialchars($_POST['m_t']));
 
 
         //saving data one by one
@@ -88,6 +102,10 @@ else{
         $data5 = array('value'=>$banner_type);
         $where5 = array('name'=>'home_top_banner');
         $obj->update_record('home',$where5,$data5);
+
+        $data6 = array('value'=>$m_t);
+        $where6 = array('name'=>'media_type');
+        $obj->update_record('home',$where6,$data6);
 
         $success = "Data changed successfully";
 
@@ -121,6 +139,42 @@ else{
 
         }
 
+        if($_FILES['image']['tmp_name'])
+        {
+
+            if($_FILES['image']['size'] > 5000000) { //5 MB (size is also in bytes)
+                $error = "document is too large. Maximum file size is 5 mb";
+
+
+            } else if($_FILES['image']['size'] > 1) {
+
+                //save document to folder and database
+                $image = "images/".$_FILES['image']['name'];
+
+                $originalFileName=$_FILES['image']['name'];
+                $originalFileName_array=explode('.',$originalFileName);
+                $ext=$originalFileName_array[1];
+                $image="images/".uniqid().'.'.$ext;
+
+                $move=move_uploaded_file($_FILES['image']['tmp_name'],$image);
+                // $where5 = array('name'=>'about_section_button_link');
+                if($move){
+                  unlink($banner_phone_image);
+                  $query="UPDATE `home` SET `value`='$image' WHERE `name`='image'";
+                  $run1=mysqli_query($connect,$query);
+                  $query="UPDATE `home` SET `value`='$image' WHERE `name`='phone_banner'";
+                  $run2=mysqli_query($connect,$query);
+                  if($run1 && $run2){
+                    $success = "image changed successfully";
+                  }
+                }
+
+
+
+
+            }
+
+        }
     }
 
 }
@@ -134,6 +188,23 @@ else{
     <script src="functions/co_wordCount_dei.js" charset="utf-8"></script>
 
     <script type=”text/javascript” src=”//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js”></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.maradio').change(function(){
+          var media=$(this).val();
+          if(media==='image'){
+            $('.video').hide();
+            $('.image').show();
+          }else {
+            $('.image').hide();
+            $('.video').show();
+
+          }
+
+        });
+      });
+    </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -224,11 +295,23 @@ else{
                                         <label for="exampleInputPassword1">Button url</label>
                                         <input id="5-100" type="url" class="form-control" id="exampleInputPassword1" placeholder="Banner text" value="<?=$button_url?>" name="button_url">
 
+                                    </div><hr>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Choose media to show on banner</label><br>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="customRadioInline1" name="m_t" class="maradio custom-control-input" value="video" <?php if($m_t=='video'){echo 'checked';}?>>
+                                            <label class="custom-control-label" for="customRadioInline1" >Video</label>
+                                          </div>
+                                          <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="customRadioInline2" name="m_t" class="maradio custom-control-input" value="image" <?php if($m_t=='image'){echo 'checked';}?>>
+                                            <label class="custom-control-label" for="customRadioInline2" >Image</label>
+                                          </div>
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Video file input <small class="text-info">(!!Rename your file to relevant one word before uploading)</small></label>
+                                    <div class=" video form-group" style="<?php if($m_t=='image'){echo 'display:none';} ?>">
+                                        <!-- <label for="exampleInputFile">Video file input </label> -->
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-inpu" id="exampleInputFile" name="video" accept="video/*">
@@ -256,6 +339,21 @@ else{
                                         </div>
                                     </div>
 
+                                    <div class="image form-group" style="<?php if($m_t=='video'){echo 'display:none';} ?>">
+                                        <!-- <label for="exampleInputFile">Image file input <small class="text-info">()</small></label> -->
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-inpu" id="exampleInputFile" name="image" accept="images/*">
+                                                <!-- <label class="custom-file-label" for="exampleInputFile">Choose video background</label> -->
+                                            </div>
+                                            <div class="input-group" style="margin-top:20px;">
+                                              <img src="<?=$banner_phone_image?>" alt="" height="100px" width="200px"><br><br>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
 

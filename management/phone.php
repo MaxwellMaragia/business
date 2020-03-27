@@ -51,8 +51,11 @@ else{
               if($move){
                 unlink($banner_phone_image);
                 $query="UPDATE `home` SET `value`='$image' WHERE `name`='phone_banner'";
-                $run=mysqli_query($connect,$query);
-                if($run){
+                $run1=mysqli_query($connect,$query);
+
+                $query="UPDATE `home` SET `value`='$image' WHERE `name`='image'";
+                $run2=mysqli_query($connect,$query);
+                if($run1 && $run2){
                   $success = "image changed successfully";
                 }
               }
@@ -94,7 +97,7 @@ else{
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Banner/intro section(mobile)</h1>
+                        <h1 class="m-0 text-dark">Phone</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
 
@@ -128,7 +131,7 @@ else{
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Banner/Intro editor</h3>
+                                <h3 class="card-title">Phone banner image</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -136,7 +139,7 @@ else{
                                 <div class="card-body">
 
                                     <div class="form-group">
-                                        <label for="exampleInputFile">Image file input <small class="text-info">()</small></label>
+                                        <label for="exampleInputFile">Image file input <small class="text-info"></small></label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-inpu" id="exampleInputFile" name="image" accept="images/*">

@@ -1,6 +1,20 @@
 <?php
 include_once 'functions/functions.php';
 
+$sql = "SELECT value FROM home WHERE name='media_type'";
+$exe = mysqli_query($obj->con,$sql);
+while($get_data = mysqli_fetch_assoc($exe))
+{
+    $m_t = $get_data['value'];
+}
+
+$sql = "SELECT value FROM home WHERE name='image'";
+$exe = mysqli_query($obj->con,$sql);
+while($get_data = mysqli_fetch_assoc($exe))
+{
+    $big_image = $get_data['value'];
+}
+
 $sql = "SELECT value FROM home WHERE name='home_top_banner'";
 $exe = mysqli_query($obj->con,$sql);
 $get_banner = mysqli_fetch_assoc($exe);
@@ -92,6 +106,7 @@ if(isset($_POST['service'])){
         <?php include_once 'plugins/resources.php'?>
 
         <style media="screen">
+
           @media (max-width: 1000px) and (orientation: portrait){
             video{
               visibility: hidden;
@@ -115,6 +130,7 @@ if(isset($_POST['service'])){
               }
 
             .maneno .blue-part h1{
+              text-align: center;
               /* margin-top: -200px; */
               /* color:red; */
             }
@@ -127,7 +143,7 @@ if(isset($_POST['service'])){
 
             .banner_custom{
               background-image: url('management/<?=$phone_banner?>');
-              /* marin-top: 10px; */
+              margin-top: 100px;
               background-position: center; /* Center the image */
               background-repeat: no-repeat; /* Do not repeat the image */
               background-size: cover;
@@ -138,14 +154,19 @@ if(isset($_POST['service'])){
               text-align: center;
               margin-top: -80px;
               height:80px;
-
-              /* visibility: hidden; */
             }
-          }
+
           .maneno .blue-part h1{
             text-align: center;
             margin-top: -10px;
           }
+
+          .maneno h1{
+            text-align: center;
+            margin-top: -250px;
+          }
+        }
+
 
         </style>
     </head>
@@ -161,10 +182,13 @@ if(isset($_POST['service'])){
         <?php if($banner==1){?>
         <!-- start parallax hero section -->
         <section class="banner-juu wow fadeIn no-padding parallax " data-stellar-background-ratio="0.5" >
-            <div class="banner_custom opacity-extra-medium bg-black" style="">
+            <div class="banner_custom opacity-extra-medium bg-black" <?php if ($m_t=='image'){echo 'style="background-image:url(&quot;management/'.$big_image.'&quot;)"';}?> >
+              <?php if ($m_t=='video'){ ?>
               <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
                 <source src="management/<?=$banner_video?>" type="video/mp4">
               </video>
+              <?php } ?>
+
             </div>
             <div class=" container-fluid position-relative full-screen">
                 <div class="maneno slider-typography">
@@ -172,7 +196,7 @@ if(isset($_POST['service'])){
                         <div class="slider-text-bottom ">
                             <div class=" blue-part col-lg-6 col-md-7 col-sm-12 col-xs-12 pull-right bg-custom-blue-opacity padding-six-lr md-padding-seven-lr padding-five-tb xs-padding-20px-all last-paragraph-no-margin">
                                 <!-- <div class="box-separator-line width-180px bg-white md-width-120px sm-width-90px sm-display-none"></div> -->
-                                <h1 class="text-white  font-weight-600 alt-font width-95 sm-width-100 margin-60px-top"><?=$banner_heading?></h1>
+                                <h1 class="text-white font-weight-600 alt-font width-95 sm-width-100 margin-60px-top" ><?=$banner_heading?></h1>
                                 <p class="text-large font-weight-300 text-white width-75 md-width-85 sm-width-95 xs-width-100 xs-display-none"><?=$banner_text?></p><br>
                                 <!-- <a href="about" class=" text-center btn btn-medium btn-white margin-20px-top text-link-deep-pink xs-margin-10px-top">Read more</a> -->
                             </div>
@@ -186,15 +210,17 @@ if(isset($_POST['service'])){
 
 
         <section class="wow fadeIn no-padding parallax xs-background-image-center" data-stellar-background-ratio="0.5" style="background-image: url(&quot;http://placehold.it/1920x1200&quot;); background-position: 0px 0px; visibility: visible; animation-name: fadeIn;">
-            <div class="opacity-extra-medium bg-black ">
+            <div class="banner_custom opacity-extra-medium bg-black " <?php if ($m_t=='image'){echo 'style="background-image:url(&quot;management/'.$big_image.'&quot;)"';}?>>
+              <?php if ($m_t=='video'){ ?>
               <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="">
                 <source src="management/<?=$banner_video?>" type="video/mp4">
               </video>
+            <?php } ?>
             </div>
             <div class="container-fluid padding-thirteen-lr one-fourth-screen xs-padding-15px-lr">
                 <div class="row height-100">
                     <div class="position-relative height-100">
-                        <div class="slider-typography">
+                        <div class="maneno slider-typography">
                             <div class="slider-text-middle-main">
                                 <div class="slider-text-bottom">
                                     <div class="col-lg-12 text-center margin-100px-bottom" >
