@@ -48,10 +48,7 @@
                               <ul id="accordion" class="nav navbar-nav navbar-left no-margin alt-font text-normal" data-in="fadeIn" data-out="fadeOut">
                                   <!-- start menu item -->
 
-                                  <li>
-                                      <a href="index">Home</a>
-                                      <!-- start sub menu -->
-                                  </li>
+
                                   <li>
                                       <a href="about">About us</a>
                                       <!-- start sub menu -->

@@ -174,7 +174,7 @@ if(isset($_POST['service'])){
         <!-- start header -->
         <header>
             <!-- start navigation -->
-                <?php include_once 'plugins/nav.php'?>
+                <?php include_once 'plugins/home_nav.php'?>
             <!-- end navigation -->
         </header>
         <!-- end header -->
